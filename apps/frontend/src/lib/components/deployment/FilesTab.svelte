@@ -256,7 +256,7 @@
 	}
 
 	.list :global(.tr--head) {
-		background: var(--bg-app);
+		background: var(--accent-3);
 	}
 
 	.list :global(.tr--interactive:hover::after) {

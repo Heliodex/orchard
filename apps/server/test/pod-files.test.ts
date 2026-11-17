@@ -36,7 +36,7 @@ test('parentPodPath walks one level up and stops at the root', () => {
 });
 
 test('parsePodListing reads NUL-separated records in the order the container lists them', () => {
-  const stdout = ['f\t12\tnginx.conf', 'd\t0\tconf.d', 'l\t0\tlatest', 'o\t0\tfifo', ''].join('\0');
+  const stdout = ['f\tnginx.conf', 'd\tconf.d', 'l\tlatest', 'o\tfifo', '12', ''].join('\0');
   assert.deepEqual(parsePodListing(stdout), [
     { name: 'nginx.conf', kind: 'file', size: 12 },
     { name: 'conf.d', kind: 'dir', size: null },
@@ -46,8 +46,25 @@ test('parsePodListing reads NUL-separated records in the order the container lis
 });
 
 test('parsePodListing keeps tabs and newlines inside file names', () => {
-  const stdout = 'f\t3\ta\tb\nc\0';
+  const stdout = ['f\ta\tb\nc', '3', ''].join('\0');
   assert.deepEqual(parsePodListing(stdout), [{ name: 'a\tb\nc', kind: 'file', size: 3 }]);
+});
+
+test('parsePodListing pairs sizes with files in order', () => {
+  const stdout = ['f\ta', 'd\tdir', 'f\tb', '10', '20', ''].join('\0');
+  assert.deepEqual(parsePodListing(stdout), [
+    { name: 'a', kind: 'file', size: 10 },
+    { name: 'dir', kind: 'dir', size: null },
+    { name: 'b', kind: 'file', size: 20 }
+  ]);
+});
+
+test('parsePodListing leaves sizes empty when the counts do not line up', () => {
+  const stdout = ['f\ta', 'f\tb', '10', ''].join('\0');
+  assert.deepEqual(parsePodListing(stdout), [
+    { name: 'a', kind: 'file', size: null },
+    { name: 'b', kind: 'file', size: null }
+  ]);
 });
 
 test('parsePodListing skips malformed records', () => {

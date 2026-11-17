@@ -28,14 +28,19 @@ export function parentPodPath(path: string): string {
 
 export const LIST_SCRIPT = [
   'cd "$1" 2>/dev/null || exit 3',
+  String.raw`size_batch() { wc -c "$@" | sed -e '/ total$/d' -e 's/^ *\([0-9][0-9]*\) .*/\1/' | tr '\n' '\0'; }`,
+  'set --',
   'for f in .[!.]* ..?* *; do',
   '  [ -e "$f" ] || [ -L "$f" ] || continue',
-  '  if [ -L "$f" ]; then t=l; s=',
-  '  elif [ -d "$f" ]; then t=d; s=',
-  '  elif [ -f "$f" ]; then t=f; s=$(wc -c < "$f" 2>/dev/null | tr -d " ")',
-  '  else t=o; s=; fi',
-  '  printf "%s\\t%s\\t%s\\0" "$t" "$s" "$f"',
-  'done'
+  '  if [ -L "$f" ]; then t=l',
+  '  elif [ -d "$f" ]; then t=d',
+  '  elif [ -f "$f" ] && [ -r "$f" ]; then t=f; set -- "$@" "./$f"',
+  '  else t=o; fi',
+  '  printf "%s\\t%s\\0" "$t" "$f"',
+  '  [ $# -ge 500 ] && { size_batch "$@"; set --; }',
+  'done',
+  '[ $# -gt 0 ] && size_batch "$@"',
+  'exit 0'
 ].join('\n');
 
 export const STAT_FILE_SCRIPT = [
@@ -52,19 +57,23 @@ const KIND_BY_CODE: Record<string, PodFileKind> = {
 
 export function parsePodListing(stdout: string): PodFileEntry[] {
   const entries: PodFileEntry[] = [];
+  const sizes: string[] = [];
   for (const record of stdout.split('\0')) {
     if (!record) continue;
-    const first = record.indexOf('\t');
-    const second = first < 0 ? -1 : record.indexOf('\t', first + 1);
-    if (second < 0) continue;
-    const kind = KIND_BY_CODE[record.slice(0, first)];
-    const name = record.slice(second + 1);
+    const tab = record.indexOf('\t');
+    if (tab < 0) {
+      sizes.push(record);
+      continue;
+    }
+    const kind = KIND_BY_CODE[record.slice(0, tab)];
+    const name = record.slice(tab + 1);
     if (!kind || !name) continue;
-    const size = Number(record.slice(first + 1, second));
-    entries.push({
-      name,
-      kind,
-      size: kind === 'file' && Number.isFinite(size) ? size : null
+    entries.push({ name, kind, size: null });
+  }
+  const files = entries.filter((entry) => entry.kind === 'file');
+  if (sizes.length === files.length) {
+    files.forEach((entry, i) => {
+      entry.size = parseFileSize(sizes[i]);
     });
   }
   return entries;

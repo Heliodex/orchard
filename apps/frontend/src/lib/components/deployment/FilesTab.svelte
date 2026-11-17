@@ -178,25 +178,23 @@
 					{columns}
 					rows={listing.entries}
 					rowKey={(e: Entry) => e.name}
+					onRowClick={(e: Entry) => open(e.name)}
+					rowActive={(e: Entry) => e.kind === 'dir'}
+					rowLabel={(e: Entry) => `Open ${e.name}`}
 					label="Files in {path}"
 				>
 					{#snippet cell(entry, col)}
 						{#if col.id === 'name'}
-							{#if entry.kind === 'dir'}
-								<button type="button" class="name name--dir" onclick={() => open(entry.name)}>
+							<span class="name">
+								{#if entry.kind === 'dir'}
 									<Folder size={16} aria-hidden="true" />
-									<span>{entry.name}</span>
-								</button>
-							{:else}
-								<span class="name">
-									{#if entry.kind === 'symlink'}
-										<FileSymlink size={16} aria-hidden="true" />
-									{:else}
-										<File size={16} aria-hidden="true" />
-									{/if}
-									<span>{entry.name}</span>
-								</span>
-							{/if}
+								{:else if entry.kind === 'symlink'}
+									<FileSymlink size={16} aria-hidden="true" />
+								{:else}
+									<File size={16} aria-hidden="true" />
+								{/if}
+								<span>{entry.name}</span>
+							</span>
 						{:else if col.id === 'size'}
 							<span class="muted">
 								{#if entry.kind === 'other'}
@@ -260,19 +258,6 @@
 		min-width: 0;
 		color: var(--text-default, inherit);
 		overflow-wrap: anywhere;
-	}
-
-	.name--dir {
-		background: none;
-		border: 0;
-		padding: 0;
-		font: inherit;
-		cursor: pointer;
-		text-align: left;
-	}
-
-	.name--dir:hover span {
-		text-decoration: underline;
 	}
 
 	.muted {

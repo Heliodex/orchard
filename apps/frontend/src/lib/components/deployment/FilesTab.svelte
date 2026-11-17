@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { createQuery } from '@tanstack/svelte-query';
-	import { Download, File, FileSymlink, Folder, FolderUp } from 'lucide-svelte';
+	import { Boxes, Download, File, FileSymlink, Folder, FolderUp } from 'lucide-svelte';
 	import { apiBase, apiFetch } from '$lib/stores/api';
 	import { formatMemory } from '$lib/utils/format';
 	import type { Pod } from '$lib/types/deployment';
-	import { getNewestPod } from './deployment-helpers';
+	import { getNewestPod, podLabel } from './deployment-helpers';
 	import Alert from '$lib/components/ui/Alert.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import EmptyState from '$lib/components/ui/EmptyState.svelte';
-	import Field from '$lib/components/ui/Field.svelte';
+	import Menu from '$lib/components/ui/Menu.svelte';
+	import MenuItem from '$lib/components/ui/MenuItem.svelte';
 	import SectionCard from '$lib/components/ui/SectionCard.svelte';
-	import Select from '$lib/components/ui/Select.svelte';
+	import SelectTrigger from '$lib/components/ui/SelectTrigger.svelte';
 	import Skeleton from '$lib/components/ui/Skeleton.svelte';
 	import Table, { type TableColumn } from '$lib/components/ui/Table.svelte';
 
@@ -49,6 +50,12 @@
 			? chosenPod
 			: (getNewestPod(runningPods)?.name ?? '')
 	);
+
+	function podChoice(pod: Pod | undefined): string {
+		if (!pod) return '';
+		const container = pod.containers?.[0]?.name;
+		return container ? `${podLabel(pod.name)} / ${container}` : podLabel(pod.name);
+	}
 
 	let path = $state('/');
 
@@ -124,13 +131,28 @@
 	{:else}
 		<div class="files">
 			<div class="toolbar">
-				<Field label="Pod" for="files-pod">
-					<Select id="files-pod" bind:value={chosenPod}>
-						{#each runningPods as pod (pod.name)}
-							<option value={pod.name}>{pod.name}</option>
-						{/each}
-					</Select>
-				</Field>
+				<Menu placement="bottom-start">
+					{#snippet trigger(attrs, isOpen)}
+						<SelectTrigger
+							shape="capsule"
+							{...attrs}
+							open={isOpen}
+							size="sm"
+							mono
+							value={podChoice(runningPods.find((p) => p.name === podName))}
+							placeholder="Pick a pod"
+						/>
+					{/snippet}
+					{#each runningPods as pod (pod.name)}
+						<MenuItem
+							icon={Boxes}
+							checked={pod.name === podName}
+							onclick={() => (chosenPod = pod.name)}
+						>
+							{podChoice(pod)}
+						</MenuItem>
+					{/each}
+				</Menu>
 				<nav class="crumbs" aria-label="Current folder">
 					<Button variant="ghost" size="sm" onclick={() => (path = '/')}>/</Button>
 					{#each segments as segment, i (i)}

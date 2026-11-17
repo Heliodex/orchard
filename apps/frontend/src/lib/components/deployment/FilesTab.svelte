@@ -131,12 +131,35 @@
 		return sort.dir === 'asc' ? `Reverse sort by ${key}` : `Stop sorting by ${key}`;
 	}
 
+	const naturalName = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+
 	function compareEntries(a: Entry, b: Entry, key: SortKey): number {
 		if (key === 'size') {
-			return (a.size ?? 0) - (b.size ?? 0) || a.name.localeCompare(b.name);
+			return (a.size ?? 0) - (b.size ?? 0) || naturalName.compare(a.name, b.name);
 		}
-		return a.name.localeCompare(b.name);
+		return naturalName.compare(a.name, b.name);
 	}
+
+	const ROW_HEIGHT = 44;
+	const OVERSCAN = 12;
+	let listEl = $state<HTMLDivElement | null>(null);
+	let viewport = $state(0);
+	let scrollTop = $state(0);
+
+	$effect(() => {
+		void path;
+		scrollTop = 0;
+		if (listEl) listEl.scrollTop = 0;
+	});
+
+	const windowRange = $derived.by(() => {
+		const total = shownEntries.length;
+		const start = Math.max(0, Math.floor(scrollTop / ROW_HEIGHT) - OVERSCAN);
+		const end = Math.min(total, Math.ceil((scrollTop + viewport) / ROW_HEIGHT) + OVERSCAN);
+		return { start, end: Math.max(start, end), total };
+	});
+
+	const visibleEntries = $derived(shownEntries.slice(windowRange.start, windowRange.end));
 
 	const shownEntries = $derived.by(() => {
 		const entries = listing?.entries ?? [];
@@ -145,7 +168,7 @@
 		const files = entries.filter((e) => e.kind !== 'dir');
 		if (!active) return [...folders, ...files];
 		const direction = active.dir === 'asc' ? 1 : -1;
-		const byName = (a: Entry, b: Entry) => a.name.localeCompare(b.name);
+		const byName = (a: Entry, b: Entry) => naturalName.compare(a.name, b.name);
 		if (active.key === 'size') {
 			return [
 				...files.sort((a, b) => direction * compareEntries(a, b, 'size')),
@@ -287,10 +310,16 @@
 				{:else if listing.entries.length === 0}
 					<EmptyState title="Empty folder" />
 				{:else}
-					<div class="list">
+					<div
+						class="list"
+						bind:this={listEl}
+						bind:clientHeight={viewport}
+						onscroll={(e) => (scrollTop = e.currentTarget.scrollTop)}
+					>
+						<div style:height="{windowRange.start * ROW_HEIGHT}px"></div>
 						<Table
 							{columns}
-							rows={shownEntries}
+							rows={visibleEntries}
 							rowKey={(e: Entry) => e.name}
 							onRowClick={(e: Entry) => open(e.name)}
 							rowActive={(e: Entry) => e.kind === 'dir'}
@@ -332,6 +361,7 @@
 								{/if}
 							{/snippet}
 						</Table>
+						<div style:height="{(windowRange.total - windowRange.end) * ROW_HEIGHT}px"></div>
 					</div>
 				{/if}
 			</div>
@@ -415,7 +445,9 @@
 	.list {
 		background: var(--bg-sunken);
 		border-radius: 0.875rem;
-		overflow: hidden;
+		max-height: 32rem;
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 
 	.list :global(.tr--interactive:hover::after) {

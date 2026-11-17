@@ -7,14 +7,18 @@ import {
   Post,
   Query,
   Req,
+  Res,
   BadRequestException,
   NotFoundException,
   ForbiddenException
 } from '@nestjs/common';
+import type { Response } from 'express';
 import { KubernetesService } from './kubernetes.service';
 import { K8sCnpgService } from './k8s-cnpg.service';
 import { K8sWorkloadService } from './k8s-workload.service';
 import { K8sNetworkService } from './k8s-network.service';
+import { PodFilesService } from './pod-files.service';
+import { attachmentDisposition, fileNameFromPath, normalizePodPath } from './pod-files';
 import { Auth, RequireScope } from '../auth/decorators';
 import { AuthorizationService } from '../auth/authorization.service';
 import { PrismaService } from '../prisma/prisma.service';
@@ -36,6 +40,7 @@ export class KubernetesController {
     private readonly k8sCnpg: K8sCnpgService,
     private readonly k8sWorkload: K8sWorkloadService,
     private readonly k8sNetwork: K8sNetworkService,
+    private readonly podFiles: PodFilesService,
     private readonly authz: AuthorizationService,
     private readonly prisma: PrismaService
   ) {}
@@ -260,6 +265,66 @@ export class KubernetesController {
       })
     ]);
     return result;
+  }
+
+  @Get('pods/:podName/files')
+  @RequireScope('exec')
+  async listPodFiles(
+    @Param('podName') podName: string,
+    @Req() req: any,
+    @Query('namespace') namespace?: string,
+    @Query('path') path?: string,
+    @Query('container') container?: string
+  ) {
+    assertValidPodName(podName);
+    const ns = await this.resolvePodFileAccess(namespace, podName, req, 'list files in pod');
+    const dir = normalizePodPath(path);
+    const entries = await this.podFiles.list(ns, podName, dir, container);
+    return { path: dir, entries };
+  }
+
+  @Get('pods/:podName/files/download')
+  @RequireScope('exec')
+  async downloadPodFile(
+    @Param('podName') podName: string,
+    @Req() req: any,
+    @Res() res: Response,
+    @Query('namespace') namespace?: string,
+    @Query('path') path?: string,
+    @Query('container') container?: string
+  ) {
+    assertValidPodName(podName);
+    const ns = await this.resolvePodFileAccess(namespace, podName, req, 'download files from pod');
+    const file = normalizePodPath(path);
+    if (file === '/') throw new BadRequestException('path must name a file');
+    const size = await this.podFiles.statFile(ns, podName, file, container);
+    res.setHeader('Content-Type', 'application/octet-stream');
+    res.setHeader('Content-Length', String(size));
+    res.setHeader('Content-Disposition', attachmentDisposition(fileNameFromPath(file)));
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    try {
+      await this.podFiles.streamFile(ns, podName, file, res, container);
+      res.end();
+    } catch {
+      res.destroy();
+    }
+  }
+
+  private async resolvePodFileAccess(
+    namespace: string | undefined,
+    podName: string,
+    req: any,
+    action: string
+  ): Promise<string> {
+    const ns = (namespace ?? '').trim();
+    if (!ns) throw new BadRequestException('namespace query parameter is required');
+    await this.resolveNamespace(ns, req, 'edit', action);
+    await assertPodExecable(
+      async (n, name) => (await this.k8sWorkload.getPod(name, n)).metadata?.labels,
+      ns,
+      podName
+    );
+    return ns;
   }
 
   @Get('endpoints')

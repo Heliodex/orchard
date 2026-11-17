@@ -1,0 +1,101 @@
+import { BadRequestException } from '@nestjs/common';
+
+export const POD_PATH_MAX_LENGTH = 4096;
+
+export type PodFileKind = 'file' | 'dir' | 'symlink' | 'other';
+
+export interface PodFileEntry {
+  name: string;
+  kind: PodFileKind;
+  size: number | null;
+}
+
+export function normalizePodPath(input: unknown): string {
+  const raw = typeof input === 'string' && input.trim() ? input.trim() : '/';
+  if (raw.length > POD_PATH_MAX_LENGTH) throw new BadRequestException('path is too long');
+  if (raw.includes('\0')) throw new BadRequestException('path contains a NUL byte');
+  if (!raw.startsWith('/')) throw new BadRequestException('path must be absolute');
+  const parts = raw.split('/').filter((part) => part !== '' && part !== '.');
+  if (parts.includes('..')) throw new BadRequestException('path must not contain ..');
+  return '/' + parts.join('/');
+}
+
+export function parentPodPath(path: string): string {
+  const parts = path.split('/').filter(Boolean);
+  parts.pop();
+  return '/' + parts.join('/');
+}
+
+export const LIST_SCRIPT = [
+  'cd "$1" 2>/dev/null || exit 3',
+  'for f in .[!.]* ..?* *; do',
+  '  [ -e "$f" ] || [ -L "$f" ] || continue',
+  '  if [ -L "$f" ]; then t=l; s=',
+  '  elif [ -d "$f" ]; then t=d; s=',
+  '  elif [ -f "$f" ]; then t=f; s=$(wc -c < "$f" 2>/dev/null | tr -d " ")',
+  '  else t=o; s=; fi',
+  '  printf "%s\\t%s\\t%s\\0" "$t" "$s" "$f"',
+  'done'
+].join('\n');
+
+export const STAT_FILE_SCRIPT = [
+  '[ -f "$1" ] && [ -r "$1" ] || exit 3',
+  'wc -c < "$1" | tr -d " "'
+].join('\n');
+
+const KIND_BY_CODE: Record<string, PodFileKind> = {
+  f: 'file',
+  d: 'dir',
+  l: 'symlink',
+  o: 'other'
+};
+
+export function parsePodListing(stdout: string): PodFileEntry[] {
+  const entries: PodFileEntry[] = [];
+  for (const record of stdout.split('\0')) {
+    if (!record) continue;
+    const first = record.indexOf('\t');
+    const second = first < 0 ? -1 : record.indexOf('\t', first + 1);
+    if (second < 0) continue;
+    const kind = KIND_BY_CODE[record.slice(0, first)];
+    const name = record.slice(second + 1);
+    if (!kind || !name) continue;
+    const size = Number(record.slice(first + 1, second));
+    entries.push({
+      name,
+      kind,
+      size: kind === 'file' && Number.isFinite(size) ? size : null
+    });
+  }
+  return entries.sort((a, b) => {
+    const aDir = a.kind === 'dir' ? 0 : 1;
+    const bDir = b.kind === 'dir' ? 0 : 1;
+    if (aDir !== bDir) return aDir - bDir;
+    return a.name.localeCompare(b.name);
+  });
+}
+
+export function parseFileSize(stdout: string): number | null {
+  const text = stdout.trim();
+  if (!/^\d+$/.test(text)) return null;
+  const size = Number(text);
+  return Number.isSafeInteger(size) ? size : null;
+}
+
+export function joinPodPath(dir: string, name: string): string {
+  return dir === '/' ? `/${name}` : `${dir}/${name}`;
+}
+
+export function fileNameFromPath(path: string): string {
+  const name = path.split('/').filter(Boolean).pop();
+  return name || 'download';
+}
+
+export function attachmentDisposition(name: string): string {
+  const ascii = name.replace(/[^\x20-\x7e]/g, '_').replace(/["\\;]/g, '_');
+  const encoded = encodeURIComponent(name).replace(
+    /['()*]/g,
+    (char) => `%${char.charCodeAt(0).toString(16).toUpperCase()}`
+  );
+  return `attachment; filename="${ascii}"; filename*=UTF-8''${encoded}`;
+}

@@ -146,8 +146,8 @@
 		return naturalName.compare(a.name, b.name);
 	}
 
-	const ROW_HEIGHT = 44;
 	const OVERSCAN = 12;
+	let rowHeight = $state(44);
 	let listEl = $state<HTMLDivElement | null>(null);
 	let viewport = $state(0);
 	let scrollTop = $state(0);
@@ -160,12 +160,18 @@
 
 	const windowRange = $derived.by(() => {
 		const total = shownEntries.length;
-		const start = Math.max(0, Math.floor(scrollTop / ROW_HEIGHT) - OVERSCAN);
-		const end = Math.min(total, Math.ceil((scrollTop + viewport) / ROW_HEIGHT) + OVERSCAN);
+		const start = Math.max(0, Math.floor(scrollTop / rowHeight) - OVERSCAN);
+		const end = Math.min(total, Math.ceil((scrollTop + viewport) / rowHeight) + OVERSCAN);
 		return { start, end: Math.max(start, end), total };
 	});
 
 	const visibleEntries = $derived(shownEntries.slice(windowRange.start, windowRange.end));
+
+	$effect(() => {
+		void visibleEntries;
+		const height = listEl?.querySelector<HTMLElement>('.tr')?.getBoundingClientRect().height;
+		if (height) rowHeight = height;
+	});
 
 	const shownEntries = $derived.by(() => {
 		const entries = listing?.entries ?? [];
@@ -329,7 +335,7 @@
 						bind:clientHeight={viewport}
 						onscroll={(e) => (scrollTop = e.currentTarget.scrollTop)}
 					>
-						<div style:height="{windowRange.start * ROW_HEIGHT}px"></div>
+						<div style:height="{windowRange.start * rowHeight}px"></div>
 						<Table
 							{columns}
 							rows={visibleEntries}
@@ -374,7 +380,7 @@
 								{/if}
 							{/snippet}
 						</Table>
-						<div style:height="{(windowRange.total - windowRange.end) * ROW_HEIGHT}px"></div>
+						<div style:height="{(windowRange.total - windowRange.end) * rowHeight}px"></div>
 					</div>
 				{/if}
 			</div>

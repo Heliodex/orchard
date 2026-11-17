@@ -28,7 +28,7 @@ export function parentPodPath(path: string): string {
 
 export const LIST_SCRIPT = [
   'cd "$1" 2>/dev/null || exit 3',
-  String.raw`size_batch() { wc -c "$@" | sed -e '/ total$/d' -e 's/^ *\([0-9][0-9]*\) .*/\1/' | tr '\n' '\0'; }`,
+  String.raw`size_batch() { stat -c %s "$@" | tr '\n' '\0'; }`,
   'set --',
   'for f in .[!.]* ..?* *; do',
   '  [ -e "$f" ] || [ -L "$f" ] || continue',

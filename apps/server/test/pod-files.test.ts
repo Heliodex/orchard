@@ -111,6 +111,29 @@ test('the listing script lists a real directory through POSIX sh', () => {
   }
 });
 
+test('the listing script sizes names that look like wc output or hold newlines', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'pod-files-'));
+  try {
+    writeFileSync(join(dir, 'backup total'), 'aaa');
+    writeFileSync(join(dir, 'two\nlines'), 'bb');
+    writeFileSync(join(dir, 'plain.txt'), 'c');
+    mkdirSync(join(dir, 'sub dir'));
+    const out = execFileSync('/bin/sh', ['-c', LIST_SCRIPT, 'sh', dir]).toString('utf8');
+    const entries = parsePodListing(out);
+    assert.deepEqual(
+      entries.map((e) => [e.name, e.kind, e.size]).sort(),
+      [
+        ['backup total', 'file', 3],
+        ['plain.txt', 'file', 1],
+        ['sub dir', 'dir', null],
+        ['two\nlines', 'file', 2]
+      ].sort()
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('the listing script fails with exit 3 for a missing directory', () => {
   assert.throws(() =>
     execFileSync('/bin/sh', ['-c', LIST_SCRIPT, 'sh', '/definitely/not/here'], { stdio: 'pipe' })

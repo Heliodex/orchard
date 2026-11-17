@@ -142,12 +142,12 @@
 	const shownEntries = $derived.by(() => {
 		const entries = listing?.entries ?? [];
 		const active = sort;
-		if (!active) return entries;
+		const folders = entries.filter((e) => e.kind === 'dir');
+		const files = entries.filter((e) => e.kind !== 'dir');
+		if (!active) return [...folders, ...files];
 		const direction = active.dir === 'asc' ? 1 : -1;
 		const byName = (a: Entry, b: Entry) => a.name.localeCompare(b.name);
 		if (active.key === 'size') {
-			const files = entries.filter((e) => e.kind !== 'dir');
-			const folders = entries.filter((e) => e.kind === 'dir');
 			return [
 				...files.sort((a, b) => direction * compareEntries(a, b, 'size')),
 				...folders.sort((a, b) => direction * byName(a, b))

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createQuery } from '@tanstack/svelte-query';
+	import { browser } from '$app/environment';
 	import { Boxes, Download, File, FileSymlink, Folder, FolderUp } from 'lucide-svelte';
 	import { apiBase, apiFetch } from '$lib/stores/api';
 	import { formatMemory } from '$lib/utils/format';
@@ -108,11 +109,27 @@
 		listingQuery.error && !listing ? (listingQuery.error as Error).message : null
 	);
 
-	const columns: TableColumn<Entry>[] = [
-		{ id: 'name' },
-		{ id: 'size', align: 'end', numeric: true, width: '6rem' },
-		{ id: 'action', align: 'end' }
-	];
+	const SMALL_QUERY = '(max-width: 40rem)';
+	let narrow = $state(false);
+
+	$effect(() => {
+		if (!browser) return;
+		const mq = window.matchMedia(SMALL_QUERY);
+		const sync = () => (narrow = mq.matches);
+		sync();
+		mq.addEventListener('change', sync);
+		return () => mq.removeEventListener('change', sync);
+	});
+
+	const columns = $derived<TableColumn<Entry>[]>(
+		narrow
+			? [{ id: 'name' }, { id: 'action', align: 'end' }]
+			: [
+					{ id: 'name' },
+					{ id: 'size', align: 'end', numeric: true, width: '6rem' },
+					{ id: 'action', align: 'end' }
+				]
+	);
 
 	function downloadHref(name: string): string {
 		return `${$apiBase}/apiv1/pods/${encodeURIComponent(podName)}/files/download?${query({
@@ -183,9 +200,9 @@
 				<EmptyState title="Empty folder" />
 			{:else}
 				<div class="listing">
-					<div class="head" aria-hidden="true">
+					<div class="head" class:head--narrow={narrow} aria-hidden="true">
 						<span>Name</span>
-						<span class="head-end">Size</span>
+						{#if !narrow}<span class="head-end">Size</span>{/if}
 						<span></span>
 					</div>
 					<div class="list">
@@ -220,9 +237,15 @@
 										{/if}
 									</span>
 								{:else if entry.kind === 'file' || entry.kind === 'symlink'}
-									<a class="download" href={downloadHref(entry.name)} download={entry.name}>
+									<a
+										class="download"
+										href={downloadHref(entry.name)}
+										download={entry.name}
+										aria-label={narrow ? `Download ${entry.name}` : undefined}
+										title={narrow ? `Download ${entry.name}` : undefined}
+									>
 										<Download size={14} aria-hidden="true" />
-										<span>Download</span>
+										{#if !narrow}<span>Download</span>{/if}
 									</a>
 								{/if}
 							{/snippet}
@@ -272,6 +295,10 @@
 		color: var(--text-muted);
 		font-size: 0.8125rem;
 		font-weight: 550;
+	}
+
+	.head--narrow {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	}
 
 	.head-end {

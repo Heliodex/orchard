@@ -187,7 +187,7 @@
 			: [
 					{ id: 'name' },
 					{ id: 'size', align: 'end', numeric: true, width: '6rem' },
-					{ id: 'action', align: 'end' }
+					{ id: 'action', align: 'end', width: '7rem' }
 				]
 	);
 
@@ -278,7 +278,7 @@
 					{#if !narrow}
 						<button
 							type="button"
-							class="sort"
+							class="sort sort--end"
 							aria-label={sortLabel('size')}
 							onclick={() => cycleSort('size')}
 						>
@@ -394,7 +394,7 @@
 
 	.head {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) 6rem minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1fr) 6rem 7rem;
 		align-items: center;
 		padding: 0.5rem 1rem;
 		background: color-mix(in oklab, var(--bg-sunken) 88%, var(--text-default));
@@ -421,6 +421,11 @@
 		color: inherit;
 		font: inherit;
 		cursor: pointer;
+	}
+
+	.sort--end {
+		justify-self: end;
+		margin-inline: -0.25rem 1rem;
 	}
 
 	.sort:hover {

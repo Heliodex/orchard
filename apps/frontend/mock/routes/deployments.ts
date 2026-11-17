@@ -565,7 +565,7 @@ export function deploymentRoutes(r: Router, { store }: MockContext) {
 	r.get('/deployments', () => store.state.deployments.map((d) => deploymentSummary(store, d)));
 	r.get('/ingresses', () => store.state.deployments.flatMap(ingress));
 	r.get('/deployments/favicon', () => reply(404, { message: 'No favicon in mock mode' }));
-	r.get('/pods/:podName/files', ({ query }: any) => {
+	r.get('/pods/:podName/files', ({ query }: { query: URLSearchParams }) => {
 		const path = (query.get('path') ?? '/').replace(/\/+$/, '') || '/';
 		const tree: Record<string, { name: string; kind: string; size: number | null }[]> = {
 			'/': [

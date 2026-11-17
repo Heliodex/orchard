@@ -133,8 +133,7 @@
 
 	function compareEntries(a: Entry, b: Entry, key: SortKey): number {
 		if (key === 'size') {
-			const size = (e: Entry) => (e.kind === 'file' ? (e.size ?? 0) : -1);
-			return size(a) - size(b) || a.name.localeCompare(b.name);
+			return (a.size ?? 0) - (b.size ?? 0) || a.name.localeCompare(b.name);
 		}
 		const folders = (a.kind === 'dir' ? 0 : 1) - (b.kind === 'dir' ? 0 : 1);
 		return folders || a.name.localeCompare(b.name);
@@ -145,6 +144,15 @@
 		const active = sort;
 		if (!active) return entries;
 		const direction = active.dir === 'asc' ? 1 : -1;
+		const byName = (a: Entry, b: Entry) => a.name.localeCompare(b.name);
+		if (active.key === 'size') {
+			const files = entries.filter((e) => e.kind !== 'dir');
+			const folders = entries.filter((e) => e.kind === 'dir');
+			return [
+				...files.sort((a, b) => direction * compareEntries(a, b, 'size')),
+				...folders.sort((a, b) => direction * byName(a, b))
+			];
+		}
 		return [...entries].sort((a, b) => direction * compareEntries(a, b, active.key));
 	});
 	const loadError = $derived(

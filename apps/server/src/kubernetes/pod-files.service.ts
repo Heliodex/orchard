@@ -8,13 +8,7 @@ import * as k8s from '@kubernetes/client-node';
 import { PassThrough, Writable } from 'node:stream';
 import { KubernetesService } from './kubernetes.service';
 import { K8sCnpgService } from './k8s-cnpg.service';
-import {
-  LIST_SCRIPT,
-  STAT_FILE_SCRIPT,
-  parsePodListing,
-  parseFileSize,
-  type PodFileEntry
-} from './pod-files';
+import { LIST_SCRIPT, STAT_FILE_SCRIPT, parsePodListing, type PodFileEntry } from './pod-files';
 
 const EXEC_TIMEOUT_MS = 30_000;
 
@@ -41,12 +35,12 @@ export class PodFilesService {
     return parsePodListing(result.stdout);
   }
 
-  async statFile(
+  async assertReadableFile(
     namespace: string,
     pod: string,
     path: string,
     container?: string
-  ): Promise<number> {
+  ): Promise<void> {
     const result = await this.run(
       namespace,
       pod,
@@ -54,9 +48,6 @@ export class PodFilesService {
       container
     );
     if (!result.success) this.failed(result.stderr, `No readable file at ${path}`);
-    const size = parseFileSize(result.stdout);
-    if (size === null) throw new BadGatewayException('Could not read the file size');
-    return size;
   }
 
   async streamFile(
@@ -64,31 +55,48 @@ export class PodFilesService {
     pod: string,
     path: string,
     out: Writable,
+    signal: AbortSignal,
     container?: string
   ): Promise<void> {
     const kc = this.requireKubeConfig();
     const target = await this.resolveContainer(namespace, pod, container);
+    if (signal.aborted) return;
     const exec = new k8s.Exec(kc);
     const stdout = new PassThrough();
     const stderr = new PassThrough();
     const errChunks: Buffer[] = [];
+    stdout.on('error', () => undefined);
     stderr.on('data', (chunk: Buffer) => errChunks.push(chunk));
     stdout.pipe(out, { end: false });
+    let socket: { close(): void } | undefined;
+    const onAbort = () => {
+      stdout.destroy();
+      socket?.close();
+    };
+    signal.addEventListener('abort', onAbort, { once: true });
 
     await new Promise<void>((resolve, reject) => {
       let failure: string | null = null;
-      stdout.on('end', () => (failure ? reject(new BadGatewayException(failure)) : resolve()));
+      stdout.on('close', () => {
+        signal.removeEventListener('abort', onAbort);
+        if (failure && !signal.aborted) reject(new BadGatewayException(failure));
+        else resolve();
+      });
       exec
         .exec(namespace, pod, target, ['cat', path], stdout, stderr, null, false, (status) => {
           if (status.status !== 'Success') {
             failure =
               Buffer.concat(errChunks).toString('utf-8').trim() || 'The file could not be read';
           }
-          stdout.end();
+          if (!stdout.destroyed) stdout.end();
+        })
+        .then((ws) => {
+          socket = ws;
+          if (signal.aborted) ws.close();
         })
         .catch((err: unknown) => {
           failure = err instanceof Error ? err.message : String(err);
-          stdout.end();
+          if (!stdout.destroyed) stdout.end();
         });
     });
   }

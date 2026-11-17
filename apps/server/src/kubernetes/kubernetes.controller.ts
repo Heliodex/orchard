@@ -297,14 +297,17 @@ export class KubernetesController {
     const ns = await this.resolvePodFileAccess(namespace, podName, req, 'download files from pod');
     const file = normalizePodPath(path);
     if (file === '/') throw new BadRequestException('path must name a file');
-    const size = await this.podFiles.statFile(ns, podName, file, container);
+    await this.podFiles.assertReadableFile(ns, podName, file, container);
     res.setHeader('Content-Type', 'application/octet-stream');
-    res.setHeader('Content-Length', String(size));
     res.setHeader('Content-Disposition', attachmentDisposition(fileNameFromPath(file)));
     res.setHeader('X-Content-Type-Options', 'nosniff');
+    const abort = new AbortController();
+    res.on('close', () => {
+      if (!res.writableFinished) abort.abort();
+    });
     try {
-      await this.podFiles.streamFile(ns, podName, file, res, container);
-      res.end();
+      await this.podFiles.streamFile(ns, podName, file, res, abort.signal, container);
+      if (!res.destroyed) res.end();
     } catch {
       res.destroy();
     }

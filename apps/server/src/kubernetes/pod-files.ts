@@ -43,10 +43,7 @@ export const LIST_SCRIPT = [
   'exit 0'
 ].join('\n');
 
-export const STAT_FILE_SCRIPT = [
-  '[ -f "$1" ] && [ -r "$1" ] || exit 3',
-  'wc -c < "$1" | tr -d " "'
-].join('\n');
+export const STAT_FILE_SCRIPT = '[ -f "$1" ] && [ -r "$1" ] || exit 3';
 
 const KIND_BY_CODE: Record<string, PodFileKind> = {
   f: 'file',

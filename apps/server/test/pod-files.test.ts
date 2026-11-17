@@ -145,13 +145,14 @@ test('the listing script fails with exit 3 for a missing directory', () => {
   );
 });
 
-test('the stat script reports the size of a regular file only', () => {
+test('the file check script accepts a readable regular file only', () => {
   const dir = mkdtempSync(join(tmpdir(), 'pod-files-'));
   try {
     const file = join(dir, 'data.bin');
     writeFileSync(file, Buffer.alloc(1234));
-    const out = execFileSync('/bin/sh', ['-c', STAT_FILE_SCRIPT, 'sh', file]).toString('utf8');
-    assert.equal(parseFileSize(out), 1234);
+    assert.doesNotThrow(() =>
+      execFileSync('/bin/sh', ['-c', STAT_FILE_SCRIPT, 'sh', file], { stdio: 'pipe' })
+    );
     assert.throws(() =>
       execFileSync('/bin/sh', ['-c', STAT_FILE_SCRIPT, 'sh', dir], { stdio: 'pipe' })
     );

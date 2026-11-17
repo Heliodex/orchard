@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createQuery } from '@tanstack/svelte-query';
+	import { createQuery, keepPreviousData } from '@tanstack/svelte-query';
 	import { browser } from '$app/environment';
 	import { Boxes, Download, File, FileSymlink, Folder, FolderUp } from 'lucide-svelte';
 	import { apiBase, apiFetch } from '$lib/stores/api';
@@ -100,6 +100,7 @@
 			return (await res.json()) as Listing;
 		},
 		enabled: active && !!deploymentId && !!podName,
+		placeholderData: keepPreviousData,
 		staleTime: 10_000,
 		retry: false
 	}));
@@ -191,23 +192,23 @@
 				</div>
 			</div>
 
-			{#if loadError}
-				<Alert tone="error" title="Could not read this folder">{loadError}</Alert>
-			{:else if !listing}
-				<div class="loading" aria-busy="true">
-					<Skeleton height="2rem" />
-					<Skeleton height="2rem" />
-					<Skeleton height="2rem" />
+			<div class="listing">
+				<div class="head" class:head--narrow={narrow} aria-hidden="true">
+					<span>Name</span>
+					{#if !narrow}<span class="head-end">Size</span>{/if}
+					<span></span>
 				</div>
-			{:else if listing.entries.length === 0}
-				<EmptyState title="Empty folder" />
-			{:else}
-				<div class="listing">
-					<div class="head" class:head--narrow={narrow} aria-hidden="true">
-						<span>Name</span>
-						{#if !narrow}<span class="head-end">Size</span>{/if}
-						<span></span>
+				{#if loadError}
+					<Alert tone="error" title="Could not read this folder">{loadError}</Alert>
+				{:else if !listing}
+					<div class="loading" aria-busy="true">
+						<Skeleton height="2rem" />
+						<Skeleton height="2rem" />
+						<Skeleton height="2rem" />
 					</div>
+				{:else if listing.entries.length === 0}
+					<EmptyState title="Empty folder" />
+				{:else}
 					<div class="list">
 						<Table
 							{columns}
@@ -254,8 +255,8 @@
 							{/snippet}
 						</Table>
 					</div>
-				</div>
-			{/if}
+				{/if}
+			</div>
 		</div>
 	{/if}
 </SectionCard>
@@ -305,7 +306,7 @@
 	}
 
 	.head-end {
-		text-align: end;
+		text-align: start;
 	}
 
 	.list {

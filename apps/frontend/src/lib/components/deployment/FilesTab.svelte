@@ -1,7 +1,17 @@
 <script lang="ts">
 	import { createQuery, keepPreviousData } from '@tanstack/svelte-query';
 	import { browser } from '$app/environment';
-	import { Boxes, Download, File, FileSymlink, Folder, FolderUp } from 'lucide-svelte';
+	import {
+		Boxes,
+		ChevronDown,
+		ChevronUp,
+		ChevronsUpDown,
+		Download,
+		File,
+		FileSymlink,
+		Folder,
+		FolderUp
+	} from 'lucide-svelte';
 	import { apiBase, apiFetch } from '$lib/stores/api';
 	import { formatMemory } from '$lib/utils/format';
 	import type { Pod } from '$lib/types/deployment';
@@ -106,6 +116,37 @@
 	}));
 
 	const listing = $derived(listingQuery.data as Listing | undefined);
+
+	type SortKey = 'name' | 'size';
+	let sort = $state<{ key: SortKey; dir: 'asc' | 'desc' } | null>(null);
+
+	function cycleSort(key: SortKey) {
+		if (sort?.key !== key) sort = { key, dir: 'asc' };
+		else if (sort.dir === 'asc') sort = { key, dir: 'desc' };
+		else sort = null;
+	}
+
+	function sortLabel(key: SortKey): string {
+		if (sort?.key !== key) return `Sort by ${key}`;
+		return sort.dir === 'asc' ? `Reverse sort by ${key}` : `Stop sorting by ${key}`;
+	}
+
+	function compareEntries(a: Entry, b: Entry, key: SortKey): number {
+		if (key === 'size') {
+			const size = (e: Entry) => (e.kind === 'file' ? (e.size ?? 0) : -1);
+			return size(a) - size(b) || a.name.localeCompare(b.name);
+		}
+		const folders = (a.kind === 'dir' ? 0 : 1) - (b.kind === 'dir' ? 0 : 1);
+		return folders || a.name.localeCompare(b.name);
+	}
+
+	const shownEntries = $derived.by(() => {
+		const entries = listing?.entries ?? [];
+		const active = sort;
+		if (!active) return entries;
+		const direction = active.dir === 'asc' ? 1 : -1;
+		return [...entries].sort((a, b) => direction * compareEntries(a, b, active.key));
+	});
 	const loadError = $derived(
 		listingQuery.error && !listing ? (listingQuery.error as Error).message : null
 	);
@@ -193,9 +234,39 @@
 			</div>
 
 			<div class="listing">
-				<div class="head" class:head--narrow={narrow} aria-hidden="true">
-					<span>Name</span>
-					{#if !narrow}<span class="head-end">Size</span>{/if}
+				<div class="head" class:head--narrow={narrow}>
+					<button
+						type="button"
+						class="sort"
+						aria-label={sortLabel('name')}
+						onclick={() => cycleSort('name')}
+					>
+						<span>Name</span>
+						{#if sort?.key === 'name' && sort.dir === 'asc'}
+							<ChevronUp size={14} aria-hidden="true" />
+						{:else if sort?.key === 'name'}
+							<ChevronDown size={14} aria-hidden="true" />
+						{:else}
+							<ChevronsUpDown size={14} aria-hidden="true" class="sort-idle" />
+						{/if}
+					</button>
+					{#if !narrow}
+						<button
+							type="button"
+							class="sort"
+							aria-label={sortLabel('size')}
+							onclick={() => cycleSort('size')}
+						>
+							<span>Size</span>
+							{#if sort?.key === 'size' && sort.dir === 'asc'}
+								<ChevronUp size={14} aria-hidden="true" />
+							{:else if sort?.key === 'size'}
+								<ChevronDown size={14} aria-hidden="true" />
+							{:else}
+								<ChevronsUpDown size={14} aria-hidden="true" class="sort-idle" />
+							{/if}
+						</button>
+					{/if}
 					<span></span>
 				</div>
 				{#if loadError}
@@ -212,7 +283,7 @@
 					<div class="list">
 						<Table
 							{columns}
-							rows={listing.entries}
+							rows={shownEntries}
 							rowKey={(e: Entry) => e.name}
 							onRowClick={(e: Entry) => open(e.name)}
 							rowActive={(e: Entry) => e.kind === 'dir'}
@@ -305,8 +376,33 @@
 		grid-template-columns: minmax(0, 1fr) max-content;
 	}
 
-	.head-end {
-		text-align: start;
+	.sort {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		justify-self: start;
+		padding: 0.125rem 0.25rem;
+		margin-inline: -0.25rem;
+		border: 0;
+		border-radius: 0.375rem;
+		background: none;
+		color: inherit;
+		font: inherit;
+		cursor: pointer;
+	}
+
+	.sort:hover {
+		color: var(--text-default);
+		background: var(--bg-hover);
+	}
+
+	.sort:focus-visible {
+		outline: 2px solid var(--focus-ring-color);
+		outline-offset: 1px;
+	}
+
+	.sort :global(.sort-idle) {
+		opacity: 0.5;
 	}
 
 	.list {

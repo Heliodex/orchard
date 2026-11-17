@@ -109,9 +109,9 @@
 	);
 
 	const columns: TableColumn<Entry>[] = [
-		{ id: 'name', label: 'Name' },
-		{ id: 'size', label: 'Size', align: 'end', numeric: true, width: '6rem' },
-		{ id: 'action', label: '', align: 'end' }
+		{ id: 'name' },
+		{ id: 'size', align: 'end', numeric: true, width: '6rem' },
+		{ id: 'action', align: 'end' }
 	];
 
 	function downloadHref(name: string): string {
@@ -182,45 +182,52 @@
 			{:else if listing.entries.length === 0}
 				<EmptyState title="Empty folder" />
 			{:else}
-				<div class="list">
-					<Table
-						{columns}
-						rows={listing.entries}
-						rowKey={(e: Entry) => e.name}
-						onRowClick={(e: Entry) => open(e.name)}
-						rowActive={(e: Entry) => e.kind === 'dir'}
-						rowLabel={(e: Entry) => `Open ${e.name}`}
-						inset={false}
-						label="Files in {path}"
-					>
-						{#snippet cell(entry, col)}
-							{#if col.id === 'name'}
-								<span class="name">
-									{#if entry.kind === 'dir'}
-										<Folder size={16} aria-hidden="true" />
-									{:else if entry.kind === 'symlink'}
-										<FileSymlink size={16} aria-hidden="true" />
-									{:else}
-										<File size={16} aria-hidden="true" />
-									{/if}
-									<span>{entry.name}</span>
-								</span>
-							{:else if col.id === 'size'}
-								<span class="muted">
-									{#if entry.kind === 'other'}
-										special file
-									{:else if entry.kind === 'file' && entry.size != null}
-										{formatMemory(entry.size)}
-									{/if}
-								</span>
-							{:else if entry.kind === 'file' || entry.kind === 'symlink'}
-								<a class="download" href={downloadHref(entry.name)} download={entry.name}>
-									<Download size={14} aria-hidden="true" />
-									<span>Download</span>
-								</a>
-							{/if}
-						{/snippet}
-					</Table>
+				<div class="listing">
+					<div class="head" aria-hidden="true">
+						<span>Name</span>
+						<span class="head-end">Size</span>
+						<span></span>
+					</div>
+					<div class="list">
+						<Table
+							{columns}
+							rows={listing.entries}
+							rowKey={(e: Entry) => e.name}
+							onRowClick={(e: Entry) => open(e.name)}
+							rowActive={(e: Entry) => e.kind === 'dir'}
+							rowLabel={(e: Entry) => `Open ${e.name}`}
+							inset={false}
+							label="Files in {path}"
+						>
+							{#snippet cell(entry, col)}
+								{#if col.id === 'name'}
+									<span class="name">
+										{#if entry.kind === 'dir'}
+											<Folder size={16} aria-hidden="true" />
+										{:else if entry.kind === 'symlink'}
+											<FileSymlink size={16} aria-hidden="true" />
+										{:else}
+											<File size={16} aria-hidden="true" />
+										{/if}
+										<span>{entry.name}</span>
+									</span>
+								{:else if col.id === 'size'}
+									<span class="muted">
+										{#if entry.kind === 'other'}
+											special file
+										{:else if entry.kind === 'file' && entry.size != null}
+											{formatMemory(entry.size)}
+										{/if}
+									</span>
+								{:else if entry.kind === 'file' || entry.kind === 'symlink'}
+									<a class="download" href={downloadHref(entry.name)} download={entry.name}>
+										<Download size={14} aria-hidden="true" />
+										<span>Download</span>
+									</a>
+								{/if}
+							{/snippet}
+						</Table>
+					</div>
 				</div>
 			{/if}
 		</div>
@@ -249,14 +256,32 @@
 		gap: 0.25rem;
 	}
 
+	.listing {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.head {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 6rem minmax(0, 1fr);
+		align-items: center;
+		padding: 0.5rem 1rem;
+		background: var(--accent-3);
+		border-radius: 0.875rem;
+		color: var(--text-muted);
+		font-size: 0.8125rem;
+		font-weight: 550;
+	}
+
+	.head-end {
+		text-align: end;
+	}
+
 	.list {
 		background: var(--bg-sunken);
 		border-radius: 0.875rem;
 		overflow: hidden;
-	}
-
-	.list :global(.tr--head) {
-		background: var(--accent-3);
 	}
 
 	.list :global(.tr--interactive:hover::after) {

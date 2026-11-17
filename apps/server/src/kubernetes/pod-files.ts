@@ -11,7 +11,7 @@ export interface PodFileEntry {
 }
 
 export function normalizePodPath(input: unknown): string {
-  const raw = typeof input === 'string' && input.trim() ? input.trim() : '/';
+  const raw = typeof input === 'string' && input.trim() ? input : '/';
   if (raw.length > POD_PATH_MAX_LENGTH) throw new BadRequestException('path is too long');
   if (raw.includes('\0')) throw new BadRequestException('path contains a NUL byte');
   if (!raw.startsWith('/')) throw new BadRequestException('path must be absolute');

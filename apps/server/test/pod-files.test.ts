@@ -19,7 +19,12 @@ test('normalizePodPath accepts absolute paths and collapses them', () => {
   assert.equal(normalizePodPath(undefined), '/');
   assert.equal(normalizePodPath(''), '/');
   assert.equal(normalizePodPath('/usr//share/./nginx/'), '/usr/share/nginx');
-  assert.equal(normalizePodPath('  /etc  '), '/etc');
+  assert.equal(normalizePodPath('/dir '), '/dir ');
+  assert.equal(normalizePodPath('/etc/notes.txt '), '/etc/notes.txt ');
+});
+
+test('normalizePodPath rejects leading whitespace before the root slash', () => {
+  assert.throws(() => normalizePodPath('  /etc'));
 });
 
 test('normalizePodPath rejects relative paths, parent segments and NUL bytes', () => {

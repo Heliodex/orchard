@@ -35,13 +35,13 @@ test('parentPodPath walks one level up and stops at the root', () => {
   assert.equal(parentPodPath('/'), '/');
 });
 
-test('parsePodListing reads NUL-separated records and sorts directories first', () => {
+test('parsePodListing reads NUL-separated records in the order the container lists them', () => {
   const stdout = ['f\t12\tnginx.conf', 'd\t0\tconf.d', 'l\t0\tlatest', 'o\t0\tfifo', ''].join('\0');
   assert.deepEqual(parsePodListing(stdout), [
+    { name: 'nginx.conf', kind: 'file', size: 12 },
     { name: 'conf.d', kind: 'dir', size: null },
-    { name: 'fifo', kind: 'other', size: null },
     { name: 'latest', kind: 'symlink', size: null },
-    { name: 'nginx.conf', kind: 'file', size: 12 }
+    { name: 'fifo', kind: 'other', size: null }
   ]);
 });
 
@@ -83,19 +83,12 @@ test('the listing script lists a real directory through POSIX sh', () => {
     symlinkSync(join(dir, 'nginx.conf'), join(dir, 'link'));
     const out = execFileSync('/bin/sh', ['-c', LIST_SCRIPT, 'sh', dir]).toString('utf8');
     const entries = parsePodListing(out);
-    assert.equal(entries[0].name, 'conf.d');
-    assert.equal(entries[0].kind, 'dir');
-    assert.deepEqual(
-      entries
-        .slice(1)
-        .map((e) => [e.name, e.kind, e.size])
-        .sort(),
-      [
-        ['.hidden', 'file', 0],
-        ['link', 'symlink', null],
-        ['nginx.conf', 'file', 5]
-      ]
-    );
+    assert.deepEqual(entries.map((e) => [e.name, e.kind, e.size]).sort(), [
+      ['.hidden', 'file', 0],
+      ['conf.d', 'dir', null],
+      ['link', 'symlink', null],
+      ['nginx.conf', 'file', 5]
+    ]);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

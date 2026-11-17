@@ -67,12 +67,7 @@ export function parsePodListing(stdout: string): PodFileEntry[] {
       size: kind === 'file' && Number.isFinite(size) ? size : null
     });
   }
-  return entries.sort((a, b) => {
-    const aDir = a.kind === 'dir' ? 0 : 1;
-    const bDir = b.kind === 'dir' ? 0 : 1;
-    if (aDir !== bDir) return aDir - bDir;
-    return a.name.localeCompare(b.name);
-  });
+  return entries;
 }
 
 export function parseFileSize(stdout: string): number | null {

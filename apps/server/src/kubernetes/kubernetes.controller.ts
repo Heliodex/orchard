@@ -40,9 +40,9 @@ export class KubernetesController {
     private readonly k8sCnpg: K8sCnpgService,
     private readonly k8sWorkload: K8sWorkloadService,
     private readonly k8sNetwork: K8sNetworkService,
-    private readonly podFiles: PodFilesService,
     private readonly authz: AuthorizationService,
-    private readonly prisma: PrismaService
+    private readonly prisma: PrismaService,
+    private readonly podFiles: PodFilesService
   ) {}
 
   /**

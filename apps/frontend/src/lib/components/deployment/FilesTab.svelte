@@ -173,12 +173,15 @@
 										<File size={16} aria-hidden="true" />
 									{/if}
 									<span>{entry.name}</span>
-									{#if entry.kind === 'other'}<span class="kind">special file</span>{/if}
 								</span>
 							{/if}
 						{:else if col.id === 'size'}
 							<span class="muted">
-								{entry.kind === 'file' && entry.size != null ? formatMemory(entry.size) : ''}
+								{#if entry.kind === 'other'}
+									special file
+								{:else if entry.kind === 'file' && entry.size != null}
+									{formatMemory(entry.size)}
+								{/if}
 							</span>
 						{:else if entry.kind === 'file' || entry.kind === 'symlink'}
 							<a class="download" href={downloadHref(entry.name)} download={entry.name}>
@@ -248,11 +251,6 @@
 
 	.name--dir:hover span {
 		text-decoration: underline;
-	}
-
-	.kind {
-		color: var(--text-muted, inherit);
-		font-size: 0.8125rem;
 	}
 
 	.muted {

@@ -13,7 +13,12 @@
 		FolderUp
 	} from 'lucide-svelte';
 	import { apiBase, apiFetch } from '$lib/stores/api';
-	import { formatMemory } from '$lib/utils/format';
+	import {
+		formatFileSize,
+		sortPodEntries,
+		type PodFileEntry,
+		type PodFileSort
+	} from '$lib/utils/pod-files';
 	import type { Pod } from '$lib/types/deployment';
 	import { getNewestPod, podLabel } from './deployment-helpers';
 	import Alert from '$lib/components/ui/Alert.svelte';
@@ -26,13 +31,7 @@
 	import Skeleton from '$lib/components/ui/Skeleton.svelte';
 	import Table, { type TableColumn } from '$lib/components/ui/Table.svelte';
 
-	type FileKind = 'file' | 'dir' | 'symlink' | 'other';
-
-	interface Entry {
-		name: string;
-		kind: FileKind;
-		size: number | null;
-	}
+	type Entry = PodFileEntry;
 
 	interface Listing {
 		path: string;
@@ -123,27 +122,22 @@
 
 	const listing = $derived(listingQuery.data as Listing | undefined);
 
-	type SortKey = 'name' | 'size';
-	let sort = $state<{ key: SortKey; dir: 'asc' | 'desc' } | null>(null);
+	let sort = $state<PodFileSort | null>(null);
 
-	function cycleSort(key: SortKey) {
+	const SMALL_QUERY = '(max-width: 40rem)';
+	let narrow = $state(false);
+
+	const activeSort = $derived(narrow && sort?.key === 'size' ? null : sort);
+
+	function cycleSort(key: PodFileSort['key']) {
 		if (sort?.key !== key) sort = { key, dir: 'asc' };
 		else if (sort.dir === 'asc') sort = { key, dir: 'desc' };
 		else sort = null;
 	}
 
-	function sortLabel(key: SortKey): string {
-		if (sort?.key !== key) return `Sort by ${key}`;
-		return sort.dir === 'asc' ? `Reverse sort by ${key}` : `Stop sorting by ${key}`;
-	}
-
-	const naturalName = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
-
-	function compareEntries(a: Entry, b: Entry, key: SortKey): number {
-		if (key === 'size') {
-			return (a.size ?? 0) - (b.size ?? 0) || naturalName.compare(a.name, b.name);
-		}
-		return naturalName.compare(a.name, b.name);
+	function sortLabel(key: PodFileSort['key']): string {
+		if (activeSort?.key !== key) return `Sort by ${key}`;
+		return activeSort.dir === 'asc' ? `Reverse sort by ${key}` : `Stop sorting by ${key}`;
 	}
 
 	const OVERSCAN = 12;
@@ -173,28 +167,10 @@
 		if (height) rowHeight = height;
 	});
 
-	const shownEntries = $derived.by(() => {
-		const entries = listing?.entries ?? [];
-		const active = sort;
-		const folders = entries.filter((e) => e.kind === 'dir');
-		const files = entries.filter((e) => e.kind !== 'dir');
-		if (!active) return [...folders, ...files];
-		const direction = active.dir === 'asc' ? 1 : -1;
-		const byName = (a: Entry, b: Entry) => naturalName.compare(a.name, b.name);
-		if (active.key === 'size') {
-			return [
-				...files.sort((a, b) => direction * compareEntries(a, b, 'size')),
-				...folders.sort((a, b) => direction * byName(a, b))
-			];
-		}
-		return [...entries].sort((a, b) => direction * compareEntries(a, b, active.key));
-	});
+	const shownEntries = $derived(sortPodEntries(listing?.entries ?? [], activeSort));
 	const loadError = $derived(
 		listingQuery.error && !listing ? (listingQuery.error as Error).message : null
 	);
-
-	const SMALL_QUERY = '(max-width: 40rem)';
-	let narrow = $state(false);
 
 	$effect(() => {
 		if (!browser) return;
@@ -233,7 +209,7 @@
 	}
 </script>
 
-<SectionCard title="Files" description="Browse the container's file system and download files.">
+<SectionCard title="Files">
 	{#if runningPods.length === 0}
 		<EmptyState title="No running pods" description="Files are read from a running pod." />
 	{:else}
@@ -291,9 +267,9 @@
 						onclick={() => cycleSort('name')}
 					>
 						<span>Name</span>
-						{#if sort?.key === 'name' && sort.dir === 'asc'}
+						{#if activeSort?.key === 'name' && activeSort.dir === 'asc'}
 							<ChevronUp size={14} aria-hidden="true" />
-						{:else if sort?.key === 'name'}
+						{:else if activeSort?.key === 'name'}
 							<ChevronDown size={14} aria-hidden="true" />
 						{:else}
 							<ChevronsUpDown size={14} aria-hidden="true" class="sort-idle" />
@@ -307,9 +283,9 @@
 							onclick={() => cycleSort('size')}
 						>
 							<span>Size</span>
-							{#if sort?.key === 'size' && sort.dir === 'asc'}
+							{#if activeSort?.key === 'size' && activeSort.dir === 'asc'}
 								<ChevronUp size={14} aria-hidden="true" />
-							{:else if sort?.key === 'size'}
+							{:else if activeSort?.key === 'size'}
 								<ChevronDown size={14} aria-hidden="true" />
 							{:else}
 								<ChevronsUpDown size={14} aria-hidden="true" class="sort-idle" />
@@ -363,7 +339,7 @@
 										{#if entry.kind === 'other'}
 											special file
 										{:else if entry.kind === 'file' && entry.size != null}
-											{formatMemory(entry.size)}
+											{formatFileSize(entry.size)}
 										{/if}
 									</span>
 								{:else if (entry.kind === 'file' || entry.kind === 'symlink') && !listingQuery.isPlaceholderData}

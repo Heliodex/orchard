@@ -209,7 +209,13 @@
 		})}`;
 	}
 
+	let lastOpenAt = 0;
+
 	function open(name: string) {
+		if (listingQuery.isPlaceholderData) return;
+		const now = Date.now();
+		if (now - lastOpenAt < 600) return;
+		lastOpenAt = now;
 		path = childPath(path, name);
 	}
 </script>

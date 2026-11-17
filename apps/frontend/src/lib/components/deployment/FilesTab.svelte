@@ -123,7 +123,7 @@
 
 	const columns = $derived<TableColumn<Entry>[]>(
 		narrow
-			? [{ id: 'name' }, { id: 'action', align: 'end' }]
+			? [{ id: 'name' }, { id: 'action', align: 'end', width: 'max-content' }]
 			: [
 					{ id: 'name' },
 					{ id: 'size', align: 'end', numeric: true, width: '6rem' },
@@ -218,7 +218,7 @@
 						>
 							{#snippet cell(entry, col)}
 								{#if col.id === 'name'}
-									<span class="name">
+									<span class="name" title={entry.name}>
 										{#if entry.kind === 'dir'}
 											<Folder size={16} aria-hidden="true" />
 										{:else if entry.kind === 'symlink'}
@@ -298,7 +298,7 @@
 	}
 
 	.head--narrow {
-		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1fr) max-content;
 	}
 
 	.head-end {
@@ -322,12 +322,19 @@
 	}
 
 	.name {
-		display: inline-flex;
+		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 		min-width: 0;
+		max-width: 100%;
 		color: var(--text-default, inherit);
-		overflow-wrap: anywhere;
+	}
+
+	.name > span {
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.muted {

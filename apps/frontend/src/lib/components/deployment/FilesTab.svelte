@@ -104,7 +104,7 @@
 	const columns: TableColumn<Entry>[] = [
 		{ id: 'name', label: 'Name' },
 		{ id: 'size', label: 'Size', align: 'end', numeric: true, width: '6rem' },
-		{ id: 'action', label: '', align: 'end', width: '5rem' }
+		{ id: 'action', label: '', align: 'end' }
 	];
 
 	function downloadHref(name: string): string {
@@ -258,9 +258,12 @@
 	.muted {
 		color: var(--text-muted, inherit);
 		font-variant-numeric: tabular-nums;
+		white-space: nowrap;
+		padding-inline-end: 1.5rem;
 	}
 
 	.download {
+		white-space: nowrap;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.25rem;

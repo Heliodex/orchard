@@ -86,8 +86,14 @@
 		return '/' + segments.slice(0, index + 1).join('/');
 	}
 
+	const podContainer = $derived(
+		runningPods.find((p) => p.name === podName)?.containers?.[0]?.name ?? ''
+	);
+
 	function query(extra: Record<string, string> = {}): string {
-		return new URLSearchParams({ namespace, ...extra }).toString();
+		const params = new URLSearchParams({ namespace, ...extra });
+		for (const [key, value] of [...params]) if (!value) params.delete(key);
+		return params.toString();
 	}
 
 	async function errorMessage(res: Response): Promise<string> {
@@ -104,7 +110,7 @@
 		queryKey: ['deployment-files', deploymentId, podName, path],
 		queryFn: async (): Promise<Listing> => {
 			const res = await apiFetch(
-				`/apiv1/pods/${encodeURIComponent(podName)}/files?${query({ path })}`
+				`/apiv1/pods/${encodeURIComponent(podName)}/files?${query({ path, container: podContainer })}`
 			);
 			if (!res.ok) throw new Error(await errorMessage(res));
 			return (await res.json()) as Listing;
@@ -205,7 +211,8 @@
 
 	function downloadHref(name: string): string {
 		return `${$apiBase}/apiv1/pods/${encodeURIComponent(podName)}/files/download?${query({
-			path: childPath(path, name)
+			path: childPath(path, name),
+			container: podContainer
 		})}`;
 	}
 
@@ -353,7 +360,7 @@
 											{formatMemory(entry.size)}
 										{/if}
 									</span>
-								{:else if entry.kind === 'file' || entry.kind === 'symlink'}
+								{:else if (entry.kind === 'file' || entry.kind === 'symlink') && !listingQuery.isPlaceholderData}
 									<a
 										class="download"
 										href={downloadHref(entry.name)}

@@ -170,23 +170,26 @@
 						</MenuItem>
 					{/each}
 				</Menu>
-				<nav class="crumbs" aria-label="Current folder">
-					<Button variant="ghost" size="sm" onclick={() => (path = '/')}>/</Button>
-					{#each segments as segment, i (i)}
-						<Button variant="ghost" size="sm" onclick={() => (path = crumbPath(i))}>
-							{segment}
-						</Button>
-					{/each}
-				</nav>
-			</div>
-
-			{#if listing && path !== '/'}
-				<div class="up">
-					<Button variant="ghost" size="sm" icon={FolderUp} onclick={() => (path = parentOf(path))}>
+				<div class="location">
+					<Button
+						variant="ghost"
+						size="sm"
+						icon={FolderUp}
+						disabled={path === '/'}
+						onclick={() => (path = parentOf(path))}
+					>
 						Up one level
 					</Button>
+					<nav class="crumbs" aria-label="Current folder">
+						<Button variant="ghost" size="sm" onclick={() => (path = '/')}>/</Button>
+						{#each segments as segment, i (i)}
+							<Button variant="ghost" size="sm" onclick={() => (path = crumbPath(i))}>
+								{segment}
+							</Button>
+						{/each}
+					</nav>
 				</div>
-			{/if}
+			</div>
 
 			{#if loadError}
 				<Alert tone="error" title="Could not read this folder">{loadError}</Alert>
@@ -357,8 +360,11 @@
 		text-decoration: underline;
 	}
 
-	.up {
+	.location {
 		display: flex;
-		justify-content: flex-start;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.25rem;
+		min-width: 0;
 	}
 </style>

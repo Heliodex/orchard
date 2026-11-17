@@ -190,6 +190,7 @@
 						onRowClick={(e: Entry) => open(e.name)}
 						rowActive={(e: Entry) => e.kind === 'dir'}
 						rowLabel={(e: Entry) => `Open ${e.name}`}
+						inset={false}
 						label="Files in {path}"
 					>
 						{#snippet cell(entry, col)}
@@ -251,8 +252,11 @@
 	.list {
 		background: var(--bg-sunken);
 		border-radius: 0.875rem;
-		padding: 0.25rem 1rem;
 		overflow: hidden;
+	}
+
+	.list :global(.tr--head) {
+		background: transparent;
 	}
 
 	.loading {

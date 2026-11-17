@@ -163,6 +163,14 @@
 				</nav>
 			</div>
 
+			{#if listing && path !== '/'}
+				<div class="up">
+					<Button variant="ghost" size="sm" icon={FolderUp} onclick={() => (path = parentOf(path))}>
+						Up one level
+					</Button>
+				</div>
+			{/if}
+
 			{#if loadError}
 				<Alert tone="error" title="Could not read this folder">{loadError}</Alert>
 			{:else if !listing}
@@ -211,13 +219,6 @@
 						{/if}
 					{/snippet}
 				</Table>
-			{/if}
-			{#if listing && path !== '/'}
-				<div class="up">
-					<Button variant="ghost" size="sm" icon={FolderUp} onclick={() => (path = parentOf(path))}>
-						Up one level
-					</Button>
-				</div>
 			{/if}
 		</div>
 	{/if}

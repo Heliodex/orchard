@@ -135,8 +135,7 @@
 		if (key === 'size') {
 			return (a.size ?? 0) - (b.size ?? 0) || a.name.localeCompare(b.name);
 		}
-		const folders = (a.kind === 'dir' ? 0 : 1) - (b.kind === 'dir' ? 0 : 1);
-		return folders || a.name.localeCompare(b.name);
+		return a.name.localeCompare(b.name);
 	}
 
 	const shownEntries = $derived.by(() => {

@@ -256,7 +256,11 @@
 	}
 
 	.list :global(.tr--head) {
-		background: transparent;
+		background: var(--bg-app);
+	}
+
+	.list :global(.tr--interactive:hover::after) {
+		background: var(--bg-active);
 	}
 
 	.loading {

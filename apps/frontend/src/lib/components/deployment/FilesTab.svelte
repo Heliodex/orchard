@@ -290,7 +290,7 @@
 		grid-template-columns: minmax(0, 1fr) 6rem minmax(0, 1fr);
 		align-items: center;
 		padding: 0.5rem 1rem;
-		background: var(--accent-3);
+		background: color-mix(in oklab, var(--bg-sunken) 82%, var(--text-default));
 		border-radius: 0.875rem;
 		color: var(--text-muted);
 		font-size: 0.8125rem;

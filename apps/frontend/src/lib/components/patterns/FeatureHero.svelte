@@ -149,11 +149,12 @@
 		color: var(--text-muted);
 	}
 	.title {
+		--rond: var(--rond-hero);
 		margin: 0;
 		font-size: var(--text-display);
 		line-height: var(--lh-display);
 		font-weight: var(--weight-semibold);
-		letter-spacing: -0.025em;
+		letter-spacing: -0.014em;
 		text-wrap: balance;
 	}
 	.description {

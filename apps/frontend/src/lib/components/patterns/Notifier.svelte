@@ -1363,6 +1363,7 @@
 		background: transparent;
 		color: inherit;
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		cursor: pointer;
 		border-radius: calc(1.125rem * var(--corner-scale));
 		corner-shape: var(--corner);
@@ -1488,6 +1489,7 @@
 		color: var(--text-faint);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 
 	.bud-face {
@@ -1561,6 +1563,7 @@
 		background: color-mix(in oklab, var(--tone) 14%, transparent);
 		color: var(--tone-ink);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-caption);
 		font-weight: var(--weight-medium);
 		cursor: pointer;
@@ -1654,6 +1657,7 @@
 		color: var(--text-faint);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-align: end;
 	}
 	.nf-acts {
@@ -1760,6 +1764,7 @@
 		color: var(--text-faint);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 
 	.phase--idle {

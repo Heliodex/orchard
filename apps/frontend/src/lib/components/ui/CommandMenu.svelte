@@ -171,6 +171,7 @@
 		background: transparent;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-headline);
 		outline: none;
 	}

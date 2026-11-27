@@ -360,7 +360,9 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		color: var(--text-muted);
 	}
@@ -384,7 +386,9 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		color: var(--text-default);
 	}

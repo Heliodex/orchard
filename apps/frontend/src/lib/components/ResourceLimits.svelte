@@ -85,6 +85,7 @@
 		font-size: var(--text-footnote);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.save {
 		margin-top: var(--space-4);

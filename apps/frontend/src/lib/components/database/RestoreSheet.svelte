@@ -323,5 +323,6 @@
 	}
 	.consequence {
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 </style>

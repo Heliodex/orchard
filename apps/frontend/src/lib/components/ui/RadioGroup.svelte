@@ -208,6 +208,7 @@
 		line-height: var(--lh-callout);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 		text-box: trim-both cap alphabetic;
 	}

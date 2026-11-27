@@ -491,6 +491,7 @@
 		background: none;
 		color: var(--on-solid);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		font-weight: var(--weight-medium);
 		letter-spacing: -0.005em;
@@ -615,6 +616,7 @@
 		background: transparent;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		text-align: left;
 		cursor: pointer;
 		outline: none;

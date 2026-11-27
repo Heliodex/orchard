@@ -123,10 +123,12 @@
 		corner-shape: var(--corner);
 		background: color-mix(in oklab, var(--neutral-10) 6%, transparent);
 		box-shadow: inset 0 0 0 0.5px color-mix(in oklab, var(--neutral-10) 6%, transparent);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-title-3);
 		font-weight: var(--weight-medium);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		color: var(--text-default);
 		transition:
 			box-shadow var(--fade-in) var(--curve-out),

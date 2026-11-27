@@ -500,7 +500,8 @@
 
 	.prov-phase {
 		margin-left: 0.25rem;
-		font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 	}
@@ -529,7 +530,8 @@
 	}
 
 	.prov-count {
-		font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		color: var(--surface-muted);
@@ -675,7 +677,8 @@
 	}
 
 	.prov-panel-sub {
-		font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-micro);
 		line-height: var(--lh-micro);
 		color: var(--surface-muted);
@@ -693,6 +696,8 @@
 		padding: 0.1rem 0.45rem;
 		border-radius: var(--radius-pill);
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.04em;
 	}
 	.prov-pill-done {
@@ -774,7 +779,8 @@
 
 	.prov-warn-kind {
 		overflow-wrap: anywhere;
-		font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-micro);
 		line-height: var(--lh-micro);
 		color: var(--surface-muted);

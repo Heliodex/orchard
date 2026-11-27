@@ -119,6 +119,8 @@
 		line-height: var(--lh-micro);
 		font-weight: 600;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.05em;
 		color: var(--text-muted);
 	}
@@ -174,7 +176,8 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.125rem;
-		font-family: var(--font-mono, ui-monospace, monospace);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-micro);
 		line-height: var(--lh-micro);
 		color: var(--text-muted);

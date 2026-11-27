@@ -697,7 +697,7 @@
 		font-weight: 700;
 		color: var(--center-channel-color);
 		margin: 0;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 	}
 
 	.pj-description {
@@ -745,7 +745,9 @@
 	.pj-stat-code {
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--center-channel-color);
 	}
 
@@ -763,6 +765,8 @@
 		line-height: var(--lh-footnote);
 		font-weight: 600;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.05em;
 		color: var(--surface-muted);
 		margin: 0;
@@ -904,7 +908,8 @@
 		font-size: var(--text-footnote);
 		line-height: var(--lh-footnote);
 		color: var(--surface-muted);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;

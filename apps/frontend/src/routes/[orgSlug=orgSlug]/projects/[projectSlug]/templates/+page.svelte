@@ -383,7 +383,7 @@
 		font-size: var(--text-title-3);
 		line-height: var(--lh-title-3);
 		font-weight: 700;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		color: var(--center-channel-color);
 		margin: 0;
 	}
@@ -409,6 +409,8 @@
 		line-height: var(--lh-footnote);
 		font-weight: 600;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.05em;
 		color: var(--surface-muted);
 		margin: 0;

@@ -523,9 +523,10 @@
 	}
 
 	.setup-title {
+		--rond: var(--rond-hero);
 		font-size: var(--text-title-1);
 		font-weight: 800;
-		letter-spacing: -0.03em;
+		letter-spacing: -0.017em;
 		color: var(--center-channel-color);
 		margin: 2rem 0 0.5rem;
 		line-height: 1.2;

@@ -131,6 +131,7 @@
 		line-height: var(--lh-title-3);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		color: var(--text-default);
 	}
 	.body--warning .value {
@@ -163,6 +164,7 @@
 		font-size: var(--text-callout);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		color: var(--text-default);
 	}
 	.mini--warning {

@@ -197,7 +197,8 @@
 		margin-right: calc(var(--section-control-shift, 0px) * -1);
 	}
 	.ext-list :global(.label) {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-callout);
 	}
 	.ext-meta {
@@ -211,10 +212,11 @@
 		color: var(--text-faint);
 	}
 	.ext-version {
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.ext-restart {
 		display: block;

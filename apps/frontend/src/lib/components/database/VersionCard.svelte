@@ -330,6 +330,7 @@
 		font-size: var(--text-caption);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.ident {
 		display: flex;
@@ -344,7 +345,8 @@
 		gap: 0.25rem;
 		width: fit-content;
 		color: var(--text-default);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-callout);
 		text-decoration: none;
 	}
@@ -369,7 +371,8 @@
 		color: var(--text-muted);
 	}
 	.version {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-callout);
 		color: var(--text-default);
 	}

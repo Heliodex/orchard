@@ -1,4 +1,28 @@
 @font-face {
+  font-family: 'Allo';
+  src: url('/fonts/Allo-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Allo';
+  src: url('/fonts/Allo-Oblique.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Allo';
+  src: url('/fonts/Allo-SemiBoldOblique.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
   font-weight: 200 800;
@@ -15,7 +39,7 @@
 }
 
 :root {
-  --sl-font: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --sl-font: 'Allo', ui-sans-serif, system-ui, sans-serif;
   --sl-font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --o-canvas: var(--bg-app);
@@ -600,4 +624,8 @@ starlight-toc a[aria-current='true'] {
 
 .sl-openapi-overview-navigation-link:hover {
   background: var(--bg-hover);
+}
+
+:is(h1, h2, h3, h4) {
+  font-variation-settings: 'ROND' 70;
 }

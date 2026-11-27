@@ -10903,6 +10903,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -11081,6 +11088,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -12432,6 +12443,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -12610,6 +12628,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -13931,6 +13953,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -14109,6 +14138,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -15388,6 +15421,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -15566,6 +15606,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -16883,6 +16927,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -17061,6 +17112,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -18357,6 +18412,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -18535,6 +18597,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -20019,6 +20085,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -20224,6 +20297,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imageHistory": {
                       "items": {
@@ -21775,6 +21852,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -21953,6 +22037,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -23248,6 +23336,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -23426,6 +23521,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -24965,6 +25064,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -25170,6 +25276,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imageHistory": {
                       "items": {
@@ -26678,6 +26788,449 @@
         ]
       }
     },
+    "/deployments/{id}/devices": {
+      "patch": {
+        "description": "Auth: authenticated (scope: deploy)",
+        "operationId": "deployments_devices_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "devices": {
+                    "additionalProperties": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "description": "The full set to attach, as extended resource name to count. A count of 0 or a missing name detaches it, and null detaches everything. Pods restart to pick it up.",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "devices"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {},
+                  "properties": {
+                    "autoDeployBranch": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "autoDeployEnabled": {
+                      "type": "boolean"
+                    },
+                    "autoDeployPaths": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "buildCommand": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "builderOverride": {
+                      "enum": [
+                        "firecracker",
+                        "kubernetes",
+                        null
+                      ],
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "buildError": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "buildFromRoot": {
+                      "type": "boolean"
+                    },
+                    "buildLogs": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "buildStatus": {
+                      "type": "string"
+                    },
+                    "buildStep": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "buildStepTimestamps": {
+                      "additionalProperties": {},
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "buildType": {
+                      "enum": [
+                        "dockerfile",
+                        "railpack"
+                      ],
+                      "type": "string"
+                    },
+                    "buildWithDepot": {
+                      "type": "boolean"
+                    },
+                    "composeServiceName": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "composeStackId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "cpuRequestMilli": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "createdBy": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "deployStrategy": {
+                      "enum": [
+                        "rollingUpdate",
+                        "recreate",
+                        "blueGreen"
+                      ],
+                      "type": "string"
+                    },
+                    "detectedConfig": {
+                      "additionalProperties": {},
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
+                    "dockerfileHealthCheck": {
+                      "properties": {
+                        "command": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "interval": {
+                          "type": "number"
+                        },
+                        "retries": {
+                          "type": "number"
+                        },
+                        "startPeriod": {
+                          "type": "number"
+                        },
+                        "timeout": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "command"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "dockerfilePath": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "dockerfileTarget": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "effectiveImagePullPolicy": {
+                      "description": "What the cluster is actually doing, after deriving. Render this.",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent"
+                      ],
+                      "type": "string"
+                    },
+                    "environmentId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "framework": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "githubBranch": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "githubInstallationId": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "githubRepo": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "healthCheckCommand": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "healthCheckEnabled": {
+                      "type": "boolean"
+                    },
+                    "healthCheckInterval": {
+                      "type": "number"
+                    },
+                    "healthCheckOverride": {
+                      "type": "boolean"
+                    },
+                    "healthCheckPath": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "healthCheckPort": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "healthCheckRetries": {
+                      "type": "number"
+                    },
+                    "healthCheckTimeout": {
+                      "type": "number"
+                    },
+                    "healthCheckType": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
+                    },
+                    "imagePullPolicy": {
+                      "description": "The override. null means it is derived from the image tag.",
+                      "enum": [
+                        "Always",
+                        "IfNotPresent",
+                        null
+                      ],
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "installCommand": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "livenessEnabled": {
+                      "type": "boolean"
+                    },
+                    "memoryRequestBytes": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "type": "string"
+                    },
+                    "outputDirectory": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "persistentBuildCache": {
+                      "type": "boolean"
+                    },
+                    "projectId": {
+                      "type": "string"
+                    },
+                    "readinessEnabled": {
+                      "type": "boolean"
+                    },
+                    "replicas": {
+                      "type": "number"
+                    },
+                    "rootDirectory": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "startCommand": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "startupEnabled": {
+                      "type": "boolean"
+                    },
+                    "startupFailureThreshold": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "stopped": {
+                      "type": "boolean"
+                    },
+                    "tailscaleExposed": {
+                      "type": "boolean"
+                    },
+                    "tailscaleHostname": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "templateInstanceId": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "projectId",
+                    "name",
+                    "namespace",
+                    "replicas",
+                    "stopped",
+                    "status",
+                    "buildStatus",
+                    "createdAt",
+                    "updatedAt"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "cookieAuth": []
+          }
+        ],
+        "summary": "Attach or detach host devices such as GPUs",
+        "tags": [
+          "deployments"
+        ]
+      }
+    },
     "/deployments/{id}/diagnosis": {
       "get": {
         "description": "Auth: authenticated",
@@ -26946,6 +27499,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -27124,6 +27684,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -28623,6 +29187,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -28828,6 +29399,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imageHistory": {
                       "items": {
@@ -30270,6 +30845,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -30406,6 +30988,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -30694,6 +31280,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -30830,6 +31423,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -31185,6 +31782,534 @@
         ]
       }
     },
+    "/deployments/{id}/image-update": {
+      "get": {
+        "description": "Auth: authenticated (scope: read)",
+        "operationId": "deployments_image_update_status_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "autoUpdate": {
+                      "type": "boolean"
+                    },
+                    "blocker": {
+                      "enum": [
+                        "no_image",
+                        "source",
+                        "platform",
+                        "digest",
+                        "pull_policy",
+                        null
+                      ],
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "error": {
+                      "description": "Why the last registry check failed.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "image": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "latestDigest": {
+                      "description": "The digest the tag points at in the registry.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "pending": {
+                      "description": "A pull was started and the pods have not been checked since.",
+                      "type": "boolean"
+                    },
+                    "runningDigest": {
+                      "description": "The digest the pods run.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "tracked": {
+                      "description": "False when the app cannot follow its tag; blocker says why.",
+                      "type": "boolean"
+                    },
+                    "updateAvailable": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "description": "When the image was last pulled again.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "image",
+                    "tracked",
+                    "blocker",
+                    "autoUpdate",
+                    "runningDigest",
+                    "latestDigest",
+                    "updateAvailable",
+                    "pending",
+                    "checkedAt",
+                    "error",
+                    "updatedAt"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "cookieAuth": []
+          }
+        ],
+        "summary": "Whether a newer push of the image tag is available",
+        "tags": [
+          "deployments"
+        ]
+      },
+      "patch": {
+        "description": "Auth: authenticated (scope: deploy)",
+        "operationId": "deployments_image_update_auto_update_set",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "autoUpdate": {
+                    "description": "Roll out a new push of the same tag within a few hours of it landing.",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "autoUpdate"
+                ],
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "autoUpdate": {
+                      "type": "boolean"
+                    },
+                    "blocker": {
+                      "enum": [
+                        "no_image",
+                        "source",
+                        "platform",
+                        "digest",
+                        "pull_policy",
+                        null
+                      ],
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "error": {
+                      "description": "Why the last registry check failed.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "image": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "latestDigest": {
+                      "description": "The digest the tag points at in the registry.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "pending": {
+                      "description": "A pull was started and the pods have not been checked since.",
+                      "type": "boolean"
+                    },
+                    "runningDigest": {
+                      "description": "The digest the pods run.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "tracked": {
+                      "description": "False when the app cannot follow its tag; blocker says why.",
+                      "type": "boolean"
+                    },
+                    "updateAvailable": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "description": "When the image was last pulled again.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "image",
+                    "tracked",
+                    "blocker",
+                    "autoUpdate",
+                    "runningDigest",
+                    "latestDigest",
+                    "updateAvailable",
+                    "pending",
+                    "checkedAt",
+                    "error",
+                    "updatedAt"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "cookieAuth": []
+          }
+        ],
+        "summary": "Turn image auto-update on or off",
+        "tags": [
+          "deployments"
+        ]
+      },
+      "post": {
+        "description": "Auth: authenticated (scope: deploy)",
+        "operationId": "deployments_image_update_pull",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": {},
+                "properties": {},
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "autoUpdate": {
+                      "type": "boolean"
+                    },
+                    "blocker": {
+                      "enum": [
+                        "no_image",
+                        "source",
+                        "platform",
+                        "digest",
+                        "pull_policy",
+                        null
+                      ],
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "error": {
+                      "description": "Why the last registry check failed.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "image": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "latestDigest": {
+                      "description": "The digest the tag points at in the registry.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "pending": {
+                      "description": "A pull was started and the pods have not been checked since.",
+                      "type": "boolean"
+                    },
+                    "runningDigest": {
+                      "description": "The digest the pods run.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "tracked": {
+                      "description": "False when the app cannot follow its tag; blocker says why.",
+                      "type": "boolean"
+                    },
+                    "updateAvailable": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "description": "When the image was last pulled again.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "image",
+                    "tracked",
+                    "blocker",
+                    "autoUpdate",
+                    "runningDigest",
+                    "latestDigest",
+                    "updateAvailable",
+                    "pending",
+                    "checkedAt",
+                    "error",
+                    "updatedAt"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "cookieAuth": []
+          }
+        ],
+        "summary": "Pull the newest push of the image tag and roll it out",
+        "tags": [
+          "deployments"
+        ]
+      }
+    },
+    "/deployments/{id}/image-update/check": {
+      "post": {
+        "description": "Auth: authenticated (scope: deploy)",
+        "operationId": "deployments_image_update_check",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": {},
+                "properties": {},
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "autoUpdate": {
+                      "type": "boolean"
+                    },
+                    "blocker": {
+                      "enum": [
+                        "no_image",
+                        "source",
+                        "platform",
+                        "digest",
+                        "pull_policy",
+                        null
+                      ],
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "error": {
+                      "description": "Why the last registry check failed.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "image": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "latestDigest": {
+                      "description": "The digest the tag points at in the registry.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "pending": {
+                      "description": "A pull was started and the pods have not been checked since.",
+                      "type": "boolean"
+                    },
+                    "runningDigest": {
+                      "description": "The digest the pods run.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "tracked": {
+                      "description": "False when the app cannot follow its tag; blocker says why.",
+                      "type": "boolean"
+                    },
+                    "updateAvailable": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "description": "When the image was last pulled again.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "image",
+                    "tracked",
+                    "blocker",
+                    "autoUpdate",
+                    "runningDigest",
+                    "latestDigest",
+                    "updateAvailable",
+                    "pending",
+                    "checkedAt",
+                    "error",
+                    "updatedAt"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "cookieAuth": []
+          }
+        ],
+        "summary": "Ask the registry for the tag digest now",
+        "tags": [
+          "deployments"
+        ]
+      }
+    },
     "/deployments/{id}/ingresses": {
       "post": {
         "description": "Auth: authenticated (scope: deploy)",
@@ -31395,6 +32520,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -31573,6 +32705,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -34181,6 +35317,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -34317,6 +35460,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -34599,6 +35746,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -34777,6 +35931,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -36163,6 +37321,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -36299,6 +37464,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -36809,6 +37978,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -36987,6 +38163,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -39333,6 +40513,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -39469,6 +40656,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -39793,6 +40984,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -39971,6 +41169,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -49959,6 +51161,13 @@
                             "null"
                           ]
                         },
+                        "devices": {
+                          "additionalProperties": {
+                            "type": "number"
+                          },
+                          "description": "Host devices attached to each pod, as extended resource name to count.",
+                          "type": "object"
+                        },
                         "dockerfileHealthCheck": {
                           "properties": {
                             "command": {
@@ -50095,6 +51304,10 @@
                             "string",
                             "null"
                           ]
+                        },
+                        "imageAutoUpdate": {
+                          "description": "Roll out new pushes of the image tag by themselves.",
+                          "type": "boolean"
                         },
                         "imagePullPolicy": {
                           "description": "The override. null means it is derived from the image tag.",
@@ -61012,6 +62225,13 @@
                           "null"
                         ]
                       },
+                      "devices": {
+                        "additionalProperties": {
+                          "type": "number"
+                        },
+                        "description": "Host devices attached to each pod, as extended resource name to count.",
+                        "type": "object"
+                      },
                       "dockerfileHealthCheck": {
                         "properties": {
                           "command": {
@@ -61190,6 +62410,10 @@
                           "string",
                           "null"
                         ]
+                      },
+                      "imageAutoUpdate": {
+                        "description": "Roll out new pushes of the image tag by themselves.",
+                        "type": "boolean"
                       },
                       "imagePullPolicy": {
                         "description": "The override. null means it is derived from the image tag.",
@@ -62350,6 +63574,17 @@
                       "null"
                     ]
                   },
+                  "devices": {
+                    "additionalProperties": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "description": "Host devices to attach, as extended resource name to count, for example {\"nvidia.com/gpu\": 1}. Only the devices the instance offers are accepted.",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
                   "env": {
                     "items": {
                       "properties": {
@@ -62607,6 +63842,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -62785,6 +64027,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",
@@ -64247,6 +65493,13 @@
                         "null"
                       ]
                     },
+                    "devices": {
+                      "additionalProperties": {
+                        "type": "number"
+                      },
+                      "description": "Host devices attached to each pod, as extended resource name to count.",
+                      "type": "object"
+                    },
                     "dockerfileHealthCheck": {
                       "properties": {
                         "command": {
@@ -64425,6 +65678,10 @@
                         "string",
                         "null"
                       ]
+                    },
+                    "imageAutoUpdate": {
+                      "description": "Roll out new pushes of the image tag by themselves.",
+                      "type": "boolean"
                     },
                     "imagePullPolicy": {
                       "description": "The override. null means it is derived from the image tag.",

@@ -889,6 +889,7 @@
 	.sheet-clock {
 		color: var(--island-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		font-weight: var(--weight-regular);
 	}
 	.bar {
@@ -929,6 +930,7 @@
 		background: color-mix(in oklab, var(--island-fg) 14%, transparent);
 		color: var(--island-fg);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-callout);
 		font-weight: var(--weight-medium);
 		cursor: pointer;

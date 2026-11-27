@@ -118,6 +118,7 @@
 		flex-shrink: 0;
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.source {
 		flex-shrink: 10;

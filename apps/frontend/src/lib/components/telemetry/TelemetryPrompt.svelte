@@ -108,7 +108,7 @@
 	.tp-title {
 		font-size: var(--text-title-2);
 		font-weight: 650;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		line-height: 1.15;
 		color: var(--text-default);
 	}
@@ -151,6 +151,7 @@
 		background: none;
 		cursor: pointer;
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-caption);
 		font-weight: 500;
 		color: var(--text-link);

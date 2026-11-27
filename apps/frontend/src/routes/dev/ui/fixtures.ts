@@ -169,12 +169,12 @@ export const SIDEBAR = {
 	failing: [
 		{
 			label: 'terra-game-server',
-			href: '#',
+			href: '#terra-game-server',
 			reason: 'Out of memory',
 			at: ago(4)
 		},
-		{ label: 'terra-api', href: '#', reason: 'Health check failing', at: ago(11) },
-		{ label: 'worker', href: '#', reason: 'Build failed', at: ago(14) }
+		{ label: 'terra-api', href: '#terra-api', reason: 'Health check failing', at: ago(11) },
+		{ label: 'worker', href: '#worker', reason: 'Build failed', at: ago(14) }
 	],
 	sections(active: string): SidebarSection[] {
 		return [

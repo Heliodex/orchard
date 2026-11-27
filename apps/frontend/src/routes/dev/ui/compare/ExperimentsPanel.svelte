@@ -115,6 +115,7 @@
 		box-shadow: var(--shadow-floating);
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-callout);
 		font-weight: var(--weight-medium);
 		cursor: pointer;
@@ -131,6 +132,7 @@
 		font-size: var(--text-micro);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.panel {
 		display: flex;
@@ -220,6 +222,7 @@
 		color: var(--text-muted);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-align: right;
 	}
 	.actions {

@@ -172,6 +172,8 @@
 		font-weight: 600;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 	}
 	.sheet-date {
 		font-size: var(--text-caption);
@@ -180,7 +182,7 @@
 	.sheet-title {
 		font-size: var(--text-title-2);
 		font-weight: 650;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		line-height: 1.15;
 		color: var(--text-default);
 	}

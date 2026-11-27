@@ -202,14 +202,14 @@
 				{/if}
 				{#if pod.status.podIP}
 					<span class="meta-sep">&middot;</span>
-					<span class="font-mono">{pod.status.podIP}</span>
+					<span class="type-ident">{pod.status.podIP}</span>
 				{/if}
 				{#if pod.status.hostIP}
-					<span class="font-mono">&rarr; node {pod.status.hostIP}</span>
+					<span class="type-ident">&rarr; node {pod.status.hostIP}</span>
 				{/if}
 				{#if singleImage}
 					<span class="meta-sep">&middot;</span>
-					<span class="font-mono truncate" title={singleImage}>{singleImage}</span>
+					<span class="type-ident truncate" title={singleImage}>{singleImage}</span>
 				{/if}
 			{/snippet}
 			{#snippet actions()}
@@ -356,7 +356,8 @@
 	}
 
 	.pod-container-image {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		color: var(--text-muted);

@@ -129,6 +129,7 @@
 		color: var(--text-faint);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.num--traffic {
 		display: inline-flex;

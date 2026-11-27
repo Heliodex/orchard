@@ -327,6 +327,7 @@
 		background: none;
 		color: inherit;
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		text-align: left;
 		cursor: pointer;
 	}
@@ -367,6 +368,7 @@
 		color: var(--h-muted);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		padding-block: 0.3em;
 		margin-block: -0.3em;
 	}
@@ -413,6 +415,7 @@
 		color: var(--h-muted);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.summary-label {
 		text-box: trim-both cap alphabetic;
@@ -432,6 +435,7 @@
 		background: var(--h-fill);
 		color: var(--h-fg);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-callout);
 		font-weight: var(--weight-semibold);
 		text-decoration: none;

@@ -1,6 +1,54 @@
 @import 'tailwindcss';
 
 @font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-LightOblique.woff2') format('woff2');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-Oblique.woff2') format('woff2');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-MediumOblique.woff2') format('woff2');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-SemiBoldOblique.woff2') format('woff2');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-BoldOblique.woff2') format('woff2');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
 	font-family: 'Plus Jakarta Sans';
 	src: url('./lib/assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.woff2')
 		format('woff2');
@@ -39,7 +87,7 @@
 }
 
 @theme {
-	--font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+	--font-sans: 'Allo', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
 	--color-crimson: #f9445a;

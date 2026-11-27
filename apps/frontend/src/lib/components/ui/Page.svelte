@@ -151,7 +151,7 @@
 		font-size: var(--text-display);
 		line-height: var(--lh-display);
 		font-weight: var(--weight-semibold);
-		letter-spacing: -0.024em;
+		letter-spacing: -0.013em;
 		color: var(--text-default);
 		overflow-wrap: anywhere;
 	}

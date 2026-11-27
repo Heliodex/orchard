@@ -1,5 +1,6 @@
 <script lang="ts">
 	import {
+		Ban,
 		ChevronDown,
 		ChevronsUpDown,
 		Link2,
@@ -7,7 +8,6 @@
 		Unlink,
 		UserCheck,
 		UserPlus,
-		UserX,
 		X
 	} from 'lucide-svelte';
 	import {
@@ -149,6 +149,18 @@
 		{ value: 'owner', label: 'Owner' }
 	];
 
+	const guestOption = {
+		value: 'guest',
+		label: 'Guest',
+		description: 'Only opens the projects they are added to'
+	};
+
+	function roleOptionsFor(member: Member) {
+		return member.role === 'guest' || member.projects?.length
+			? [...roleOptions, guestOption]
+			: roleOptions;
+	}
+
 	const ROLE_ORDER: Record<string, number> = { owner: 0, admin: 1, member: 2, guest: 3 };
 
 	const ROLE_TABS: Array<{ value: RoleFilter; label: string }> = [
@@ -163,7 +175,7 @@
 		member: 'minmax(0, 1fr)',
 		access: '9.5rem',
 		role: '8rem',
-		actions: '5.75rem'
+		actions: '11rem'
 	};
 
 	const memberColumns: TableColumn<Member>[] = [
@@ -197,7 +209,7 @@
 	let sort = $state<TableSort | null>(null);
 
 	function setRole(member: Member, role: string) {
-		if (role !== member.role) onUpdateMemberRole(member.id, role as OrgRole);
+		if (role !== member.role) onUpdateMemberRole(member.id, role as Member['role']);
 	}
 
 	function formatRole(role: string) {
@@ -385,11 +397,11 @@
 					<span class="faint">No projects</span>
 				{/if}
 			{:else if col.id === 'role'}
-				{#if isOwner && member.role !== 'guest'}
+				{#if isOwner}
 					<span class="pull">
 						<Dropdown
 							bind:value={() => member.role, (v) => setRole(member, v)}
-							options={roleOptions}
+							options={roleOptionsFor(member)}
 							placement="bottom-start"
 							ariaLabel="Role for {memberName(member) || member.user.email}"
 						>
@@ -428,14 +440,16 @@
 				<Button
 					variant="ghost"
 					size="sm"
-					icon={member.status === 'disabled' ? UserCheck : UserX}
+					icon={member.status === 'disabled' ? UserCheck : Ban}
 					label="{member.status === 'disabled' ? 'Turn on' : 'Turn off'} access for {memberName(
 						member
 					) || member.user.email}"
 					loading={removingMemberId === member.id}
 					disabled={removingMemberId !== null}
 					onclick={() => onRemoveMember(member.id)}
-				/>
+				>
+					{member.status === 'disabled' ? 'Turn on access' : 'Turn off access'}
+				</Button>
 			{/if}
 		{/snippet}
 	</Table>

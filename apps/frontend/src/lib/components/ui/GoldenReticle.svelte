@@ -150,7 +150,8 @@
 	}
 	.label {
 		fill: var(--blue-solid);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: 10px;
 	}
 </style>

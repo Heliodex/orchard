@@ -108,6 +108,12 @@ const NOTICES = [
 
 const FONTS = [
   {
+    name: 'Allo',
+    file: 'apps/frontend/static/fonts/Allo/OFL.txt',
+    url: 'https://allo.joshpuckett.me',
+    in: ['web', 'docs', 'site']
+  },
+  {
     name: 'Plus Jakarta Sans',
     file: 'apps/frontend/static/fonts/Plus_Jakarta_Sans/OFL.txt',
     url: 'https://github.com/tokotype/PlusJakartaSans',

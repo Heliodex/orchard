@@ -223,10 +223,12 @@
 		background: none;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		line-height: var(--lh-body);
 		font-weight: var(--weight-medium);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-align: center;
 		appearance: textfield;
 		-moz-appearance: textfield;

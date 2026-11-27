@@ -1020,6 +1020,7 @@
 		color: var(--text-muted);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.cell-text {
 		display: block;

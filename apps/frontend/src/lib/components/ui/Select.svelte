@@ -42,6 +42,7 @@
 		box-shadow: var(--shadow-raised);
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		appearance: none;
 		cursor: pointer;

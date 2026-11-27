@@ -220,12 +220,12 @@
 					</h1>
 					{#if deployment.githubRepo}
 						<div class="mt-2 flex items-center justify-center gap-2 text-sm text-muted">
-							<span class="font-mono min-w-0 truncate" title={deployment.githubBranch}
+							<span class="type-ident min-w-0 truncate" title={deployment.githubBranch}
 								>{deployment.githubBranch}</span
 							>
 							{#if deployment.buildType}
 								<span class="progress-meta-sep">&middot;</span>
-								<span class="font-mono">
+								<span class="type-ident">
 									{deployment.buildType === 'railpack' ? 'Railpack' : 'Dockerfile'}
 								</span>
 							{/if}
@@ -246,7 +246,7 @@
 								href={liveUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="progress-url inline-flex min-w-0 max-w-full items-center gap-1.5 font-mono text-sm"
+								class="progress-url inline-flex min-w-0 max-w-full items-center gap-1.5 type-ident text-sm"
 								title={liveUrl.replace('https://', '')}
 							>
 								<span class="min-w-0 truncate">{liveUrl.replace('https://', '')}</span>

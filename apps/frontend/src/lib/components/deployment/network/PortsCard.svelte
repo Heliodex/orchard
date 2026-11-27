@@ -174,7 +174,8 @@
 	.address {
 		min-width: 0;
 		overflow-x: clip;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 		text-overflow: ellipsis;
 		white-space: nowrap;

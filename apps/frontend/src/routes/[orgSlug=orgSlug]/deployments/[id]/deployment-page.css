@@ -384,7 +384,7 @@ html.reduce-transparency .dep-header-card--hasbg .dep-env-chip {
 	color: var(--center-channel-color);
 	line-height: 1.2;
 	margin: 0;
-	letter-spacing: -0.02em;
+	letter-spacing: -0.011em;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -493,6 +493,7 @@ a.dep-meta-lead-link:hover {
 	border: none;
 	padding: 0;
 	font: inherit;
+	font-variation-settings: 'ROND' var(--rond);
 	cursor: pointer;
 }
 
@@ -931,6 +932,7 @@ a.dep-meta-lead-link:hover {
 	color: var(--text-muted);
 	flex-shrink: 0;
 	font-variant-numeric: tabular-nums;
+	--rond: var(--rond-data);
 }
 .pod-item-sub {
 	display: flex;
@@ -975,6 +977,7 @@ a.dep-meta-lead-link:hover {
 	background: none;
 	color: inherit;
 	font: inherit;
+	font-variation-settings: 'ROND' var(--rond);
 	text-align: left;
 	cursor: pointer;
 }
@@ -1105,6 +1108,7 @@ a.dep-meta-lead-link:hover {
 
 .stat-card--link {
 	font: inherit;
+	font-variation-settings: 'ROND' var(--rond);
 	color: inherit;
 	text-align: start;
 	cursor: pointer;
@@ -1129,6 +1133,8 @@ a.dep-meta-lead-link:hover {
 	font-weight: 600;
 	color: var(--surface-muted);
 	text-transform: uppercase;
+	font-feature-settings: var(--font-features-caps);
+	--rond: var(--rond-caps);
 	letter-spacing: 0.04em;
 	flex: 1;
 }
@@ -1166,7 +1172,7 @@ a.dep-meta-lead-link:hover {
 	font-family: var(--font-mono);
 	color: var(--center-channel-color);
 	line-height: 1.2;
-	letter-spacing: -0.02em;
+	letter-spacing: -0.011em;
 	margin: 0;
 }
 
@@ -1523,6 +1529,7 @@ a.dep-meta-lead-link:hover {
 	width: 100%;
 	padding: 0;
 	font: inherit;
+	font-variation-settings: 'ROND' var(--rond);
 	background: transparent;
 	border: none;
 	outline: none;
@@ -1612,6 +1619,8 @@ a.dep-meta-lead-link:hover {
 	font-weight: 600;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
+	font-feature-settings: var(--font-features-caps);
+	--rond: var(--rond-caps);
 	color: var(--text-faint);
 	transition: color var(--dur-fast) var(--ease-out);
 }
@@ -1665,6 +1674,8 @@ a.dep-meta-lead-link:hover {
 	font-weight: 600;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
+	font-feature-settings: var(--font-features-caps);
+	--rond: var(--rond-caps);
 	color: var(--text-faint);
 	margin-bottom: var(--space-3);
 }
@@ -1969,6 +1980,8 @@ a.dep-meta-lead-link:hover {
 	line-height: var(--lh-micro);
 	font-weight: 700;
 	text-transform: uppercase;
+	font-feature-settings: var(--font-features-caps);
+	--rond: var(--rond-caps);
 	letter-spacing: 0.06em;
 	color: var(--surface-muted);
 	padding: 0.75rem 1.25rem;
@@ -2048,6 +2061,8 @@ a.dep-meta-lead-link:hover {
 	line-height: var(--lh-micro);
 	font-weight: 800;
 	text-transform: uppercase;
+	font-feature-settings: var(--font-features-caps);
+	--rond: var(--rond-caps);
 	letter-spacing: 0.08em;
 	padding: 0.125rem 0.5rem;
 	border-radius: var(--radius-xs);
@@ -2319,7 +2334,8 @@ a.dep-meta-lead-link:hover {
 }
 
 .deploy-queue-sha {
-	font-family: var(--font-mono, ui-monospace, monospace);
+	font-feature-settings: var(--font-features-ident);
+	--rond: var(--rond-ident);
 	color: var(--text-default);
 }
 

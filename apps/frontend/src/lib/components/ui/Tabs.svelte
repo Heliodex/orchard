@@ -98,6 +98,7 @@
 		background: none;
 		color: var(--text-muted);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		font-weight: var(--weight-medium);
 		white-space: nowrap;
@@ -131,6 +132,7 @@
 		color: var(--text-muted);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.bar {
 		position: absolute;

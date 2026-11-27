@@ -49,6 +49,7 @@
 		list-style: none;
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.item {
 		display: grid;

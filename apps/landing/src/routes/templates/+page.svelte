@@ -259,7 +259,7 @@
 		font-size: clamp(4.5rem, 13vw, 10.5rem);
 		line-height: 0.9;
 		font-weight: 800;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.019em;
 	}
 
 	.eyebrow {
@@ -406,7 +406,7 @@
 		font-size: clamp(2rem, 3.6vw, 3rem);
 		line-height: 1.08;
 		font-weight: 700;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		text-wrap: balance;
 		color: var(--color-crimson-deep);
 	}

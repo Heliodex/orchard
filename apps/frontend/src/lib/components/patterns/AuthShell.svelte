@@ -200,11 +200,12 @@
 		max-width: 26rem;
 	}
 	.headline {
+		--rond: var(--rond-hero);
 		margin: 0;
 		font-size: clamp(1.75rem, 2.7vw, 2.625rem);
 		line-height: 1.18;
 		font-weight: var(--weight-medium);
-		letter-spacing: -0.025em;
+		letter-spacing: -0.014em;
 		text-wrap: balance;
 		text-box: trim-both cap alphabetic;
 	}
@@ -212,6 +213,9 @@
 		padding-right: 0.04em;
 		font-style: italic;
 		font-weight: var(--weight-display);
+	}
+	.headline :global(em.logotype) {
+		font-family: 'Plus Jakarta Sans', var(--font-sans);
 	}
 	.tagline {
 		margin: 0;

@@ -288,7 +288,8 @@
 		min-width: 0;
 	}
 	.mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-callout);
 		color: var(--text-default);
 	}
@@ -305,5 +306,6 @@
 		font-size: var(--text-caption);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 </style>

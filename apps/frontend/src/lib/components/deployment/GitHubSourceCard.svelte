@@ -437,14 +437,16 @@
 		text-decoration: underline;
 	}
 	.src-mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 	.src-detail {
 		min-width: 0;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		color: var(--text-muted);

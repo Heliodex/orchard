@@ -359,6 +359,7 @@
 		pointer-events: none;
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.status {
 		display: inline-flex;

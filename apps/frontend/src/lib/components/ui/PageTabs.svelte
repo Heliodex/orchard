@@ -113,12 +113,15 @@
 		background: none;
 		color: var(--text-muted);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		font-weight: var(--weight-medium);
 		white-space: nowrap;
 		text-decoration: none;
 		cursor: pointer;
-		transition: color var(--fade-in) var(--curve-out);
+		transition:
+			color var(--fade-in) var(--curve-out),
+			font-variation-settings var(--spring-smooth-duration) var(--spring-smooth);
 	}
 	.item:hover,
 	.item--active {
@@ -131,6 +134,7 @@
 	.count {
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		color: var(--text-faint);
 	}
 	.item--active .count {

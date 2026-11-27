@@ -42,6 +42,7 @@
 		color: var(--text-muted);
 	}
 	.title {
+		--rond: var(--rond-hero);
 		font-size: var(--text-headline);
 		line-height: var(--lh-headline);
 		font-weight: var(--weight-semibold);

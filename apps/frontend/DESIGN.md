@@ -128,7 +128,58 @@ These make a screen read as generic. The rule for each:
 hover/active`, `border-edge`, `text-accent`, `bg-accent-soft`, `text-success` (and
   `-soft` backgrounds), type roles `text-display|title-1|title-2|title-3|headline|body|
 callout|caption|micro`, `rounded-control|card|panel`.
-- Fonts: Plus Jakarta Sans (UI), JetBrains Mono (code, logs, IDs).
+- Fonts: Allo (UI, `--font-sans`), JetBrains Mono (only what must line up: code, logs,
+  terminals, editors). See Typeface.
+
+## Typeface
+
+Allo (Josh Puckett, SIL OFL, `src/lib/assets/fonts/Allo/`) is one variable font with three
+axes: weight 100 to 900, roundness `ROND` 0 to 100, and optical size, which follows the
+font size by itself. The obliques are separate static files, one per weight, loaded only
+when italic text renders. The living reference is `/dev/ui#typeface`.
+
+**Roundness carries the role.** Every element reads `--rond`, and one global rule in
+`app.css` turns it into `font-variation-settings: 'ROND' var(--rond)`. Set a role on the
+element, never the axis:
+
+| Token             | Value | Used for                                                                          |
+| ----------------- | ----- | --------------------------------------------------------------------------------- |
+| `--rond-ident`    | 10    | IDs, SHAs, hosts, pod names (`type-ident`)                                        |
+| `--rond-data`     | 30    | numbers and metrics; paired with every `tabular-nums`                             |
+| `--rond-caps`     | 40    | uppercase labels (`type-caps`)                                                    |
+| `--rond-body`     | 50    | running text, the default                                                         |
+| `--rond-heading`  | 70    | `h1` to `h4`                                                                      |
+| `--rond-control`  | 85    | buttons, tabs, menu items, options, `kbd`                                         |
+| `--rond-selected` | 100   | anything `aria-selected`, `aria-current="page"`, `aria-checked` or `aria-pressed` |
+| `--rond-press`    | 100   | a `Button` label while pressed                                                    |
+| `--rond-hero`     | 100   | sign in, setup, empty states, invitations                                         |
+
+- `font: inherit` resets the axes to the parent's computed value, so a rule that uses it
+  must restate `font-variation-settings: 'ROND' var(--rond)` on the next line.
+- Roundness may animate, weight may not: roundness keeps the advance widths, weight
+  changes them and reflows the line. Roundness transitions run on `--spring-smooth`
+  (selection) or `--spring-press` (press), and `WaveText` holds still below `full`.
+- Dark mode drops every weight token by 20 (`--weight-*`, `--font-weight-*`), because
+  light text on a dark ground reads heavier.
+
+**Features.** Allo's OpenType features are tokens (`--font-features-*`) with utilities:
+
+- `type-ident`: `ss02` disambiguated I l 1 O 0, `zero`, `tnum`. Any short identifier in the
+  UI uses Allo with this, not mono. Mono is only for text that must line up character for
+  character.
+- `type-figures`: tabular figures. `type-caps`: `case`, punctuation lifted beside
+  capitals; every `text-transform: uppercase` carries it. `type-fractions`: `frac`.
+- `calt` is on everywhere, so a typed `->` renders as an arrow, and brackets, dashes and
+  `@` lift beside capitals on their own.
+- The interface symbols (⌘ ⌥ ⇧ ⏎ ✓ ⚠ ↻ arrows, shapes) are drawn in Allo, so `Kbd` and
+  inline symbols match the text around them.
+
+**Tracking.** Optical size already tightens display text, so headings track about half of
+what the previous face needed: display -0.012em, title 1 -0.01em, title 2 -0.008em, title 3
+-0.006em. Hardcoded display tracking elsewhere follows the same ratio.
+
+**The logotype.** The logo files are outlined and never change. Where "Orchard" is set as
+text in the sign-in headline (`em.logotype`), it stays in Plus Jakarta Sans.
 
 ## Which component
 
@@ -688,9 +739,9 @@ through the accent's real lightness rather than the ladder's so an overridden ac
 keeps its ramp centred on itself. Skipping that remap put Electric's button fill 0.14 L
 away from where it used to be.
 
-**Fonts.** `fonts.ts` lists the six interface typefaces; the store writes the chosen
-stack to `--font-sans`. Every non-default face carries a `size-adjust` in `app.css`
-normalising it against Plus Jakarta Sans. OpenDyslexic also needs ascent and descent
+**Fonts.** `fonts.ts` lists the seven interface typefaces, Allo first; the store writes
+the chosen stack to `--font-sans`. Every non-default face carries a `size-adjust` in `app.css`
+normalising it against Plus Jakarta Sans, whose x-height is within 2% of Allo's. OpenDyslexic also needs ascent and descent
 overrides and a heavy size reduction because its advance widths are half again as wide
 as the default.
 

@@ -304,6 +304,7 @@
 		font-size: var(--text-callout);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.chevron {
 		display: grid;
@@ -313,8 +314,8 @@
 	}
 	.type {
 		overflow: hidden;
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
@@ -332,6 +333,7 @@
 		align-items: baseline;
 		gap: 0.375rem;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.count-n {
 		font-size: var(--text-body);
@@ -353,7 +355,8 @@
 		background: var(--bg-sunken);
 	}
 	.sha {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--text-muted);
 		text-decoration: none;
 	}

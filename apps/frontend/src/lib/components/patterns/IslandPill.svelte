@@ -52,6 +52,7 @@
 			0 1px 2px color-mix(in oklab, var(--neutral-10) 6%, transparent);
 		color: var(--island-fg);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		text-align: left;
 		cursor: pointer;
 	}

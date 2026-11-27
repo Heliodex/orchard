@@ -527,7 +527,8 @@
 		font-size: var(--text-callout);
 	}
 	.value--mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 	}
 	.hidden-value {

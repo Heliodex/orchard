@@ -184,6 +184,7 @@
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		color: var(--surface-muted);
-		font-family: var(--font-mono, ui-monospace, monospace);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 </style>

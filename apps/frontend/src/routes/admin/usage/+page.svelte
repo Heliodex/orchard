@@ -217,7 +217,8 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		color: var(--text-muted);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 	}
 	.muted {

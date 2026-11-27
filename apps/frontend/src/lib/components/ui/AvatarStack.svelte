@@ -87,7 +87,8 @@
 		font-size: max(0.625rem, calc(var(--size) * 0.4));
 		font-weight: var(--weight-medium);
 		font-variant-numeric: tabular-nums;
-		letter-spacing: -0.02em;
+		--rond: var(--rond-data);
+		letter-spacing: -0.011em;
 	}
 	.more-label {
 		display: block;

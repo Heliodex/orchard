@@ -349,6 +349,7 @@
 		line-height: var(--lh-footnote);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-box: trim-both cap alphabetic;
 	}
 	.phases {
@@ -363,7 +364,8 @@
 		font-size: var(--text-footnote);
 	}
 	.mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-weight: var(--weight-medium);
 	}
 	.log {

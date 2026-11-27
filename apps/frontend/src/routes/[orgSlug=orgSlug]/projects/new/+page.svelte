@@ -514,7 +514,7 @@
 		font-size: var(--text-title-2);
 		line-height: var(--lh-title-2);
 		font-weight: 700;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		padding: 0.35rem 0.25rem;
 		transition: border-color var(--dur-fast) ease;
 	}
@@ -540,6 +540,8 @@
 		line-height: var(--lh-micro);
 		font-weight: 600;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.06em;
 		color: var(--surface-muted);
 	}

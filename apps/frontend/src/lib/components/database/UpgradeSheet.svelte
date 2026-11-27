@@ -171,5 +171,6 @@
 	.steps li::marker {
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 </style>

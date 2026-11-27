@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import RoundWave from './RoundWave.svelte';
 	import { animate, stagger } from 'motion';
 	import { Github } from 'lucide-svelte';
 	import Logo from './Logo.svelte';
@@ -152,7 +153,7 @@
 			>
 				<span class="block overflow-hidden" aria-hidden="true">
 					<span data-line data-intro-hide class="block" style="--intro-delay: 0.05s">
-						Your <span class="font-extrabold">own</span> cloud
+						Your <span class="font-extrabold"><RoundWave text="own" playAfter={1400} /></span> cloud
 					</span>
 				</span>
 				<span class="block overflow-hidden" aria-hidden="true">

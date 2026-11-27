@@ -293,9 +293,11 @@
 		background: var(--fill-quiet);
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-headline);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-align: right;
 		transition: background-color var(--fade-in) var(--curve-out);
 	}
@@ -423,6 +425,7 @@
 		line-height: 1rem;
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 		transform: translateX(-50%);
 	}

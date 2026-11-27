@@ -230,7 +230,7 @@ el.animate(kf, springTiming('snap'));`;
 					onchange={(v) => setTempo(v)}
 				/>
 			</div>
-			<span class="w-10 text-callout text-fg tabular-nums">{tempoValue.toFixed(2)}x</span>
+			<span class="w-10 text-callout text-fg tabular-nums rond-data">{tempoValue.toFixed(2)}x</span>
 			<Button size="sm" icon={Play} onclick={playAll}>Play all</Button>
 		</div>
 	{/snippet}
@@ -515,6 +515,7 @@ el.animate(kf, springTiming('snap'));`;
 		color: var(--text-faint);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-align: right;
 		white-space: nowrap;
 	}

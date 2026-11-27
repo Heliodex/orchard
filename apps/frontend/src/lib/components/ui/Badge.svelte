@@ -29,6 +29,7 @@
 		line-height: 1;
 		white-space: nowrap;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-box: trim-both cap alphabetic;
 	}
 	.pill-text {

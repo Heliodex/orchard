@@ -105,7 +105,8 @@
 		text-box: trim-both cap alphabetic;
 	}
 	.name--mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-weight: var(--weight-regular);
 		color: var(--text-default);
 	}
@@ -155,6 +156,7 @@
 		display: grid;
 		min-width: max-content;
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 	}
 	.code--wrap .lines {
 		min-width: 0;
@@ -202,6 +204,7 @@
 		color: var(--text-faint);
 		text-align: right;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		user-select: none;
 	}
 	.line--marked .no {

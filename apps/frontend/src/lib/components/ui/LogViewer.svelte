@@ -878,6 +878,7 @@
 		color: var(--console-faint);
 		text-align: right;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		user-select: none;
 	}
 	.lv-level {
@@ -1076,6 +1077,7 @@
 		background: transparent;
 		color: var(--console-text, var(--text-default));
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-footnote);
 	}
 	.lv-query::placeholder {
@@ -1111,6 +1113,7 @@
 		color: var(--console-faint, var(--text-faint));
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.lv-filters-btn {
@@ -1304,6 +1307,7 @@
 		padding-right: 0.25rem;
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.lv-line--current {
 		background: color-mix(in oklab, var(--red-7) 16%, transparent);

@@ -201,6 +201,7 @@
 		font-size: var(--text-title-2);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		line-height: 1;
 	}
 	.headline {
@@ -215,6 +216,7 @@
 		color: var(--text-muted);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.detail {

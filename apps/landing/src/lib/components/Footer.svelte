@@ -77,7 +77,7 @@
 	.heart {
 		font-family: var(--font-mono);
 		font-weight: 700;
-		letter-spacing: -0.04em;
+		letter-spacing: -0.022em;
 	}
 
 	.link {

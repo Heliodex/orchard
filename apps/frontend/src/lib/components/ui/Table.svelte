@@ -342,6 +342,7 @@
 		justify-content: flex-end;
 		color: var(--text-default);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.th {
@@ -368,6 +369,7 @@
 		background: none;
 		color: inherit;
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		cursor: pointer;
 		transition:
 			background-color var(--dur-fast) ease,

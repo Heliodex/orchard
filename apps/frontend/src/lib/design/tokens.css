@@ -375,19 +375,19 @@ html.reduce-transparency *::after {
 @theme {
 	--text-display: 2rem;
 	--text-display--line-height: 2.375rem;
-	--text-display--letter-spacing: -0.022em;
+	--text-display--letter-spacing: -0.012em;
 	--text-display--font-weight: 650;
 	--text-title-1: 1.5rem;
 	--text-title-1--line-height: 1.875rem;
-	--text-title-1--letter-spacing: -0.018em;
+	--text-title-1--letter-spacing: -0.01em;
 	--text-title-1--font-weight: 650;
 	--text-title-2: 1.25rem;
 	--text-title-2--line-height: 1.625rem;
-	--text-title-2--letter-spacing: -0.014em;
+	--text-title-2--letter-spacing: -0.008em;
 	--text-title-2--font-weight: 650;
 	--text-title-3: 1.0625rem;
 	--text-title-3--line-height: 1.375rem;
-	--text-title-3--letter-spacing: -0.01em;
+	--text-title-3--letter-spacing: -0.006em;
 	--text-title-3--font-weight: 650;
 	--text-headline: 0.9375rem;
 	--text-headline--line-height: 1.25rem;
@@ -411,6 +411,38 @@ html.reduce-transparency *::after {
 	--radius-widget: 1.375rem;
 	--radius-sheet: 1.75rem;
 	--radius-floor: 0.25rem;
+}
+
+:root {
+	--font-features-body: normal;
+	--font-features-ident: 'ss02', 'zero', 'tnum';
+	--font-features-caps: 'case';
+	--font-features-figures: 'tnum';
+	--font-features-fractions: 'frac';
+	--font-rond-sharp: 0;
+	--font-rond-friendly: 50;
+	--font-rond-round: 100;
+	--rond-body: 50;
+	--rond-heading: 70;
+	--rond-control: 85;
+	--rond-press: 100;
+	--rond-selected: 100;
+	--rond-hero: 100;
+	--rond-data: 30;
+	--rond-caps: 40;
+	--rond-ident: 10;
+	--font-opsz-display: 32;
+	--font-wave-stride: 40ms;
+}
+
+:root.dark {
+	--weight-regular: 430;
+	--weight-medium: 530;
+	--weight-semibold: 630;
+	--weight-display: 780;
+	--font-weight-normal: 430;
+	--font-weight-medium: 530;
+	--font-weight-semibold: 630;
 }
 
 @theme inline {

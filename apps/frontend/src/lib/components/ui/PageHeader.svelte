@@ -100,7 +100,8 @@
 	}
 
 	.ph-title--mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-headline);
 		line-height: var(--lh-headline);
 	}

@@ -48,7 +48,7 @@
 			<div class="flex items-center gap-3">
 				<span class="text-callout text-muted">Gap</span>
 				<div class="w-32"><Slider label="Gap" bind:value={gap} min={0} max={24} step={2} /></div>
-				<span class="w-8 text-callout text-fg tabular-nums">{gap}px</span>
+				<span class="w-8 text-callout text-fg tabular-nums rond-data">{gap}px</span>
 			</div>
 			<label class="flex items-center gap-2 text-callout text-muted">
 				<Switch bind:checked={guides} label="Guides" />
@@ -207,6 +207,7 @@
 		gap: 0.75rem;
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.formula code {
 		color: var(--text-default);

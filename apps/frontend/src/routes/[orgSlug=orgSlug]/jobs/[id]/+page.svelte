@@ -431,7 +431,7 @@
 									class="job-runs-row"
 									onclick={() => goto(`/${orgSlug}/jobs/${jobId}/runs/${run.id}`)}
 								>
-									<td class="font-mono">#{run.number}</td>
+									<td class="type-ident">#{run.number}</td>
 									<td><JobStatusBadge status={run.status} /></td>
 									<td class="job-runs-muted">
 										{run.trigger === 'cron' ? 'Schedule' : (run.triggeredBy?.name ?? 'Manual')}

@@ -3,6 +3,7 @@ import Principles from './Principles.svelte';
 import Motion from './Motion.svelte';
 import Corners from './Corners.svelte';
 import TypeWeight from './TypeWeight.svelte';
+import Typeface from './Typeface.svelte';
 import ColourStatus from './ColourStatus.svelte';
 import Layout from './Layout.svelte';
 import Avoid from './Avoid.svelte';
@@ -33,6 +34,7 @@ export const SECTIONS: Section[] = [
 	{ id: 'principles', title: 'Principles', group: 'System', component: Principles },
 	{ id: 'motion', title: 'Motion', group: 'System', component: Motion },
 	{ id: 'corners', title: 'Corners', group: 'System', component: Corners },
+	{ id: 'typeface', title: 'Typeface', group: 'System', component: Typeface },
 	{ id: 'type-weight', title: 'Type and weight', group: 'System', component: TypeWeight },
 	{ id: 'colour-status', title: 'Colour and status', group: 'System', component: ColourStatus },
 	{ id: 'layout', title: 'Layout and alignment', group: 'System', component: Layout },

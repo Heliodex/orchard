@@ -62,8 +62,8 @@
 			{#each STEPS as n (n)}
 				<span class="step">
 					<span class="step-bar" style:width="{n * 4}px"></span>
-					<span class="text-caption text-fg tabular-nums">{n}</span>
-					<span class="text-caption text-faint tabular-nums">{n * 4}px</span>
+					<span class="text-caption text-fg tabular-nums rond-data">{n}</span>
+					<span class="text-caption text-faint tabular-nums rond-data">{n * 4}px</span>
 				</span>
 			{/each}
 		</div>
@@ -236,7 +236,7 @@
 			<Verdict kind="dont" note="Digests lose the part that differs." align="stretch">
 				<div class="flex min-w-0 flex-col gap-2">
 					<span class="text-body text-fg"><MiddleTruncate text={LONG_NAME} tail={8} /></span>
-					<span class="truncate font-mono text-callout text-muted">{DIGEST}</span>
+					<span class="truncate type-ident text-callout text-muted">{DIGEST}</span>
 				</div>
 			</Verdict>
 		</div>
@@ -338,6 +338,7 @@
 		font-size: var(--text-micro);
 		font-style: normal;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.toast--do .guide--icon {
 		left: 12px;
@@ -436,6 +437,7 @@
 		background: none;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		text-align: left;
 		cursor: pointer;

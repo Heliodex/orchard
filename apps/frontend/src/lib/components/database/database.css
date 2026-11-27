@@ -37,7 +37,7 @@
 	font-weight: 700;
 	color: var(--center-channel-color);
 	margin: 0;
-	letter-spacing: -0.02em;
+	letter-spacing: -0.011em;
 }
 
 .db-rename-btn {
@@ -231,6 +231,8 @@
 
 .db-list-meta-tag {
 	text-transform: uppercase;
+	font-feature-settings: var(--font-features-caps);
+	--rond: var(--rond-caps);
 	letter-spacing: 0.04em;
 	font-weight: 600;
 }

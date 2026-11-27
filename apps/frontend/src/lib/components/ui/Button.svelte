@@ -93,6 +93,7 @@
 		border-radius: calc(var(--radius-control) * var(--corner-scale));
 		corner-shape: var(--corner);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		font-weight: var(--weight-medium);
 		letter-spacing: -0.005em;
@@ -110,6 +111,7 @@
 	}
 	.button:active:not(:disabled) {
 		transform: scale(0.96);
+		--rond: var(--rond-press);
 	}
 	.button:disabled {
 		cursor: default;
@@ -157,6 +159,7 @@
 		overflow-x: clip;
 		text-overflow: ellipsis;
 		text-box: trim-both cap alphabetic;
+		transition: font-variation-settings var(--spring-press-duration) var(--spring-press);
 	}
 	.label :global(svg) {
 		position: relative;

@@ -276,7 +276,7 @@
 	.protect-title {
 		font-size: var(--text-title-3);
 		font-weight: 600;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		color: var(--center-channel-color);
 		margin: 0 0 0.5rem;
 		line-height: 1.3;
@@ -291,7 +291,8 @@
 
 	.protect-host {
 		color: var(--center-channel-color);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 		line-height: var(--lh-footnote);
 		font-weight: 600;

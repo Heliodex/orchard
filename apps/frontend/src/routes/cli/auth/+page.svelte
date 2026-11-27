@@ -187,7 +187,7 @@
 		font-size: var(--text-title-3);
 		line-height: var(--lh-title-3);
 		font-weight: 600;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		color: var(--text-default);
 		margin: 0 0 0.5rem;
 	}
@@ -257,7 +257,8 @@
 		font-size: var(--text-callout);
 		line-height: var(--lh-callout);
 		font-weight: 600;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--text-default);
 		margin: 0 0 0.25rem;
 	}

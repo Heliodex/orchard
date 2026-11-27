@@ -73,6 +73,7 @@
 		line-height: var(--lh-caption);
 		font-weight: 600;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.ui-section-header-desc {
 		margin: 0.125rem 0 0;

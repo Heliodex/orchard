@@ -186,7 +186,8 @@
 		corner-shape: var(--corner);
 		border: 1px solid transparent;
 		background-color: transparent;
-		font-family: var(--font-mono, monospace);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 		line-height: var(--lh-footnote);
 		color: var(--text-muted);

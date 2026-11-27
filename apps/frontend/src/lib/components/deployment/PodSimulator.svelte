@@ -168,7 +168,8 @@
 		padding: 0 0.25rem;
 	}
 	.name {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 		color: var(--text-muted);
 	}

@@ -367,6 +367,7 @@
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.facts > span {
 		text-box: trim-both cap alphabetic;

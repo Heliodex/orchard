@@ -330,7 +330,10 @@
 						style="background-color: var(--control-bg);"
 					>
 						<div class="min-w-0">
-							<p class="text-xs uppercase tracking-wide" style="color: var(--surface-muted);">
+							<p
+								class="text-xs uppercase type-caps tracking-wide"
+								style="color: var(--surface-muted);"
+							>
 								Role
 							</p>
 							<span class="inline-block capitalize">
@@ -339,7 +342,10 @@
 						</div>
 						{#if invitation.email}
 							<div class="min-w-0 text-right">
-								<p class="text-xs uppercase tracking-wide" style="color: var(--surface-muted);">
+								<p
+									class="text-xs uppercase type-caps tracking-wide"
+									style="color: var(--surface-muted);"
+								>
 									Email
 								</p>
 								<p

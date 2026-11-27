@@ -125,8 +125,10 @@
 		padding: var(--pad-y) 1.25rem var(--pad-y) 0.875rem;
 		color: var(--text-faint);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		text-align: right;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		user-select: none;
 		pointer-events: none;
 	}
@@ -141,6 +143,7 @@
 		margin: 0;
 		padding: var(--pad-y) 1rem var(--pad-y) 0;
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		tab-size: 2;
 		white-space: pre;
 		letter-spacing: normal;

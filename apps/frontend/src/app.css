@@ -6,6 +6,54 @@
 @import './lib/components/setup/setup-step.css';
 
 @font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-Variable.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-LightOblique.woff2') format('woff2');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-Oblique.woff2') format('woff2');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-MediumOblique.woff2') format('woff2');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-SemiBoldOblique.woff2') format('woff2');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Allo';
+	src: url('./lib/assets/fonts/Allo/Allo-BoldOblique.woff2') format('woff2');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
 	font-family: 'Plus Jakarta Sans';
 	src: url('./lib/assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.woff2')
 		format('woff2');
@@ -152,7 +200,7 @@
 }
 
 @theme {
-	--font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+	--font-sans: 'Allo', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
 	--font-mono-terminal:
 		'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
@@ -298,6 +346,31 @@
 	--info-text: #93c5fd;
 }
 
+html {
+	--rond: var(--rond-body);
+}
+
+:where(*) {
+	font-variation-settings: 'ROND' var(--rond);
+}
+
+:where(h1, h2, h3, h4) {
+	--rond: var(--rond-heading);
+}
+
+:where(button, [role='button'], [role='tab'], [role='menuitem'], [role='option'], kbd) {
+	--rond: var(--rond-control);
+}
+
+:where(
+	[aria-selected='true'],
+	[aria-current='page'],
+	[aria-checked='true'],
+	[aria-pressed='true']
+) {
+	--rond: var(--rond-selected);
+}
+
 body {
 	background-color: var(--bg-app);
 	color: var(--text-default);
@@ -306,8 +379,8 @@ body {
 	transition:
 		background-color var(--dur-fast) ease,
 		color var(--dur-fast) ease;
-	font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-	font-weight: 450;
+	font-feature-settings: var(--font-features-body);
+	font-weight: var(--weight-regular);
 	line-height: 1.5;
 }
 
@@ -592,6 +665,7 @@ html {
 	background: transparent;
 	color: var(--text-default);
 	font: inherit;
+	font-variation-settings: 'ROND' var(--rond);
 	font-size: var(--text-body);
 	line-height: var(--lh-body);
 	font-weight: var(--weight-regular);
@@ -949,6 +1023,7 @@ html {
 	box-shadow: var(--shadow-raised);
 	color: var(--text-default);
 	font: inherit;
+	font-variation-settings: 'ROND' var(--rond);
 	font-size: var(--text-body);
 	line-height: var(--lh-body);
 	text-align: left;
@@ -1039,6 +1114,7 @@ html {
 	background: transparent;
 	color: var(--text-default);
 	font: inherit;
+	font-variation-settings: 'ROND' var(--rond);
 	font-size: var(--text-body);
 	line-height: var(--lh-body);
 	text-align: left;
@@ -1106,8 +1182,9 @@ html {
 }
 
 .ui-dropdown-mono {
-	font-family: var(--font-mono, ui-monospace, monospace);
-	font-size: 0.92em;
+	font-family: inherit;
+	font-feature-settings: var(--font-features-ident);
+	--rond: var(--rond-ident);
 }
 
 .section-card-head {
@@ -1761,6 +1838,7 @@ select.input:focus {
 	line-height: 1.6;
 	letter-spacing: 0.01em;
 	font-variant-numeric: tabular-nums;
+	--rond: var(--rond-data);
 	vertical-align: baseline;
 	user-select: none;
 	cursor: default;
@@ -1778,6 +1856,8 @@ select.input:focus {
 	margin-right: 0.4em;
 	opacity: 0.75;
 	text-transform: uppercase;
+	font-feature-settings: var(--font-features-caps);
+	--rond: var(--rond-caps);
 	letter-spacing: 0.04em;
 }
 
@@ -1890,4 +1970,49 @@ select.input:focus {
 
 .echo--progress {
 	--echo-color: var(--status-progress);
+}
+
+@utility type-ident {
+	font-feature-settings: var(--font-features-ident);
+	--rond: var(--rond-ident);
+}
+
+@utility type-caps {
+	font-feature-settings: var(--font-features-caps);
+	--rond: var(--rond-caps);
+}
+
+@utility type-figures {
+	font-feature-settings: var(--font-features-figures);
+	--rond: var(--rond-data);
+}
+
+@utility type-fractions {
+	font-feature-settings: var(--font-features-fractions);
+}
+
+@utility type-display {
+	font-variation-settings:
+		'ROND' var(--rond),
+		'opsz' var(--font-opsz-display);
+}
+
+@utility rond-sharp {
+	--rond: var(--font-rond-sharp);
+}
+
+@utility rond-friendly {
+	--rond: var(--font-rond-friendly);
+}
+
+@utility rond-round {
+	--rond: var(--font-rond-round);
+}
+
+@utility rond-control {
+	--rond: var(--rond-control);
+}
+
+@utility rond-data {
+	--rond: var(--rond-data);
 }

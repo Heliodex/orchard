@@ -95,7 +95,9 @@
 		overflow-x: clip;
 		padding-block: 0.3em;
 		margin-block: -0.3em;
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-callout);
 		line-height: var(--lh-body);
 		font-weight: var(--weight-medium);

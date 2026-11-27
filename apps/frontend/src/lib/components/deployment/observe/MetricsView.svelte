@@ -1291,6 +1291,7 @@
 		font-size: var(--text-callout);
 		font-weight: var(--weight-medium);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.headline--warning {
 		color: var(--status-warning);
@@ -1306,7 +1307,8 @@
 		color: var(--text-faint);
 	}
 	.mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 	}
 	.message {

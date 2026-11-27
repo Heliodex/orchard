@@ -132,7 +132,8 @@
 		corner-shape: var(--corner);
 		background: var(--bg-active);
 		color: var(--text-default);
-		font-family: var(--font-mono);
-		font-size: 0.92em;
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 </style>

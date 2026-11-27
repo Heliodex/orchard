@@ -255,7 +255,7 @@
 		font-size: clamp(2.4rem, 6vw, 4.5rem);
 		line-height: 1;
 		font-weight: 800;
-		letter-spacing: -0.03em;
+		letter-spacing: -0.017em;
 		text-wrap: balance;
 	}
 
@@ -360,7 +360,7 @@
 		font-size: clamp(1.35rem, 2vw, 1.6rem);
 		line-height: 1.1;
 		font-weight: 700;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		color: var(--color-crimson-deep);
 	}
 

@@ -471,6 +471,7 @@
 		background: none;
 		color: inherit;
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		cursor: pointer;
 		transition:
 			background-color var(--dur-fast) ease,
@@ -548,7 +549,8 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		color: var(--text-faint);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 	}
 	.missing {
@@ -564,6 +566,7 @@
 		width: 100%;
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 		text-align: end;
 	}

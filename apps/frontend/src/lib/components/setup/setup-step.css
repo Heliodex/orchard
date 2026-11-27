@@ -25,9 +25,10 @@
 }
 
 .setup-step h2 {
+	--rond: var(--rond-hero);
 	font-size: 1.3125rem;
 	font-weight: 600;
-	letter-spacing: -0.022em;
+	letter-spacing: -0.012em;
 	line-height: 1.25;
 	color: var(--setup-ink);
 }
@@ -42,7 +43,8 @@
 
 .setup-step > p.status {
 	max-width: 34ch;
-	font-family: var(--font-mono);
+	font-feature-settings: var(--font-features-ident);
+	--rond: var(--rond-ident);
 	font-size: 0.71875rem;
 	line-height: 1.6;
 	color: var(--setup-ink-soft);
@@ -89,7 +91,8 @@
 }
 
 .setup-url {
-	font-family: var(--font-mono);
+	font-feature-settings: var(--font-features-ident);
+	--rond: var(--rond-ident);
 	font-variant-ligatures: none;
 	font-size: 0.78125rem;
 	color: var(--setup-ink);

@@ -822,6 +822,7 @@
 		background: none;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: 1em;
 		outline: none;
 		appearance: none;

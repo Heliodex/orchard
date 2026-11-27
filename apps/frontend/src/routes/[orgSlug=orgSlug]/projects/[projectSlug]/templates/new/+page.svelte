@@ -957,7 +957,7 @@ resources:
 		font-weight: 700;
 		color: var(--center-channel-color);
 		margin: 0;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 	}
 	.nt-subtitle {
 		font-size: var(--text-callout);
@@ -1075,6 +1075,8 @@ resources:
 		line-height: var(--lh-footnote);
 		font-weight: 600;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.05em;
 		color: var(--surface-muted);
 		margin: 0;

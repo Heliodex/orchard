@@ -1169,6 +1169,7 @@
 		line-height: var(--lh-caption);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.summary-text {
 		display: flex;
@@ -1187,6 +1188,7 @@
 		line-height: var(--lh-body);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.dot,
 	.row-dot {
@@ -1246,6 +1248,7 @@
 		font-size: var(--text-callout);
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.failed {
 		font-weight: var(--weight-semibold);

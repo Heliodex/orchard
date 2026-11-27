@@ -86,7 +86,7 @@
 		font-size: clamp(4rem, 12vw, 9rem);
 		line-height: 0.9;
 		font-weight: 800;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.019em;
 	}
 
 	.heading {

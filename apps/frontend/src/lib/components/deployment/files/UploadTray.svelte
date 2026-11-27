@@ -157,6 +157,7 @@
 		color: var(--text-muted);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.trail {
 		display: flex;
@@ -204,7 +205,8 @@
 		overflow-x: clip;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--text-default);
 	}
 	.bar {
@@ -216,6 +218,7 @@
 		flex-shrink: 0;
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.err {

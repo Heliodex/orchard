@@ -41,6 +41,7 @@
 		line-height: 1.2em;
 		vertical-align: -0.04em;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.slot {

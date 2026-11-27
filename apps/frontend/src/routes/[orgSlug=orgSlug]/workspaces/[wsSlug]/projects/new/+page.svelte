@@ -272,7 +272,9 @@
 					class="rounded-3xl border p-6 shadow-sm"
 					style="background-color: var(--surface-bg); border-color: var(--surface-border); color: var(--center-channel-color);"
 				>
-					<p class="text-xs uppercase tracking-wide" style="color: var(--surface-muted);">Create</p>
+					<p class="text-xs uppercase type-caps tracking-wide" style="color: var(--surface-muted);">
+						Create
+					</p>
 					<h1 class="mt-1 text-2xl font-bold" style="color: var(--center-channel-color);">
 						New project
 					</h1>
@@ -299,7 +301,7 @@
 										bind:value={slug}
 										oninput={handleSlugInput}
 										placeholder="my-project"
-										class="font-mono"
+										class="type-ident"
 									/>
 								</Field>
 
@@ -308,7 +310,7 @@
 										id="repositoryUrl"
 										bind:value={repositoryUrl}
 										placeholder="https://github.com/org/repo"
-										class="font-mono"
+										class="type-ident"
 									/>
 								</Field>
 
@@ -329,7 +331,10 @@
 										<p class="text-sm font-medium" style="color: var(--center-channel-color);">
 											Namespace preview
 										</p>
-										<code class="mt-1 block text-sm font-mono" style="color: var(--link-color);">
+										<code
+											class="mt-1 block text-sm font-sans type-ident"
+											style="color: var(--link-color);"
+										>
 											{workspace.organization.slug}-{workspace.slug}-{slug}
 										</code>
 									</div>

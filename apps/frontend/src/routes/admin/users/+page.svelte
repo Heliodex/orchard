@@ -372,7 +372,8 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		color: var(--text-muted);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 	}
 	.quiet {
@@ -395,5 +396,6 @@
 		color: var(--text-muted);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 </style>

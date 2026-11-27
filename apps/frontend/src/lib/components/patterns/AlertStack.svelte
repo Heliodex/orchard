@@ -304,6 +304,7 @@
 		font-size: var(--text-footnote);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.count--error {
 		color: var(--status-error);

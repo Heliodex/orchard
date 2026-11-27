@@ -496,7 +496,7 @@
 		font-size: var(--text-title-3);
 		line-height: var(--lh-title-3);
 		font-weight: 600;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		color: var(--text-default);
 		margin: 0 0 0.5rem;
 	}
@@ -525,7 +525,8 @@
 	.consent-origin strong {
 		color: var(--text-default);
 		font-weight: 600;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 
 	.consent-details {
@@ -605,7 +606,8 @@
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		color: var(--text-default);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		margin: 0 0 0.75rem;
 		word-break: break-all;
 	}
@@ -656,7 +658,9 @@
 		flex: 1;
 		min-width: 0;
 		text-align: center;
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		letter-spacing: 0.3em;
 	}
 

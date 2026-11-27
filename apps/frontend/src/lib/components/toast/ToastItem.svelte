@@ -594,6 +594,7 @@
 		background: color-mix(in oklab, var(--tone) 28%, transparent);
 		color: var(--toast-ink);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-caption);
 		font-weight: var(--weight-medium);
 		cursor: pointer;

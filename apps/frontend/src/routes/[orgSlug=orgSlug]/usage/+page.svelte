@@ -1315,6 +1315,7 @@
 	.amount {
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.amount strong {

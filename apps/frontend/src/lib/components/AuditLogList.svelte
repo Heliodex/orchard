@@ -240,8 +240,8 @@
 	}
 	.meta {
 		flex-shrink: 100;
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 	.more {
 		display: flex;

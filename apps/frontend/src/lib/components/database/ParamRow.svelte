@@ -109,8 +109,8 @@
 		margin-right: var(--space-2);
 	}
 	.guc {
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--text-muted);
 	}
 	.drift {
@@ -118,8 +118,8 @@
 		color: var(--status-warning);
 	}
 	.drift-value {
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 	.control {
 		width: 11rem;

@@ -458,8 +458,8 @@
 	}
 	.note code,
 	.mono {
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 	.preview {
 		min-width: 0;

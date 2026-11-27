@@ -159,7 +159,8 @@
 		color: var(--text-default);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
-		letter-spacing: -0.02em;
+		--rond: var(--rond-data);
+		letter-spacing: -0.011em;
 	}
 	.num {
 		display: block;
@@ -192,6 +193,7 @@
 		line-height: var(--lh-callout);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-box: trim-both cap alphabetic;
 	}
 </style>

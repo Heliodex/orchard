@@ -275,7 +275,7 @@ await app.listen({ port: Number(process.env.PORT ?? 3000) });
 	<div class="flex flex-col gap-3">
 		<div class="flex items-center justify-between">
 			<h2 class="text-headline text-fg">Table</h2>
-			<span class="text-caption text-muted tabular-nums"
+			<span class="text-caption text-muted tabular-nums rond-data"
 				>{clicked ? `Opened ${clicked}` : 'Click a row, or a header to sort'}</span
 			>
 		</div>
@@ -299,7 +299,7 @@ await app.listen({ port: Number(process.env.PORT ?? 3000) });
 				{:else if col.id === 'status'}
 					<StatusBadge variant="plain" meta={resourceStatus(r.state, r.build)} />
 				{:else if col.id === 'region'}
-					<span class="font-mono text-callout text-muted">{r.region}</span>
+					<span class="type-ident text-callout text-muted">{r.region}</span>
 				{:else if col.id === 'cpu'}
 					<span>{r.cpu.toFixed(2)}</span>
 				{:else if col.id === 'memory'}

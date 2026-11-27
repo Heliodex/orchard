@@ -231,8 +231,8 @@
 		text-overflow: ellipsis;
 	}
 	.name--mono {
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 	.rows :global(.meta) {
 		flex-wrap: nowrap;
@@ -258,6 +258,7 @@
 		align-items: center;
 		gap: 0.375rem;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.timer :global(svg) {
 		width: 14px;
@@ -276,8 +277,8 @@
 		min-width: 0;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--status-error);
 	}
 </style>

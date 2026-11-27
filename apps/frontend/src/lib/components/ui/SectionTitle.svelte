@@ -50,6 +50,7 @@
 		color: var(--text-faint);
 		font-weight: var(--weight-regular);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.actions {
 		display: flex;

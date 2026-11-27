@@ -425,6 +425,7 @@
 		font-size: var(--text-footnote);
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.section-time {
@@ -497,6 +498,7 @@
 		font-size: var(--text-footnote);
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.stage-steps {
@@ -508,6 +510,7 @@
 		text-align: right;
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.step-head {
 		display: flex;
@@ -565,6 +568,7 @@
 		align-items: center;
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.output {
 		padding: 0.125rem 0 0.375rem 1.5rem;

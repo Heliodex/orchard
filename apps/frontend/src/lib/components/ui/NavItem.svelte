@@ -79,6 +79,7 @@
 		background: none;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		font-weight: var(--weight-medium);
 		letter-spacing: -0.006em;
@@ -88,7 +89,8 @@
 		transition:
 			background-color var(--dur-fast) ease,
 			color var(--dur-fast) ease,
-			transform var(--spring-press-duration) var(--spring-press);
+			transform var(--spring-press-duration) var(--spring-press),
+			font-variation-settings var(--spring-smooth-duration) var(--spring-smooth);
 	}
 	.item:hover {
 		background: color-mix(in oklab, var(--neutral-10) 6%, transparent);
@@ -168,6 +170,7 @@
 		font-size: var(--text-caption);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.count--danger {
 		background: var(--red-solid);

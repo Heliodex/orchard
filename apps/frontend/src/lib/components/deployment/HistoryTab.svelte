@@ -492,9 +492,10 @@
 	}
 	.tl-title--mono,
 	.tl-mono {
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.tl-link {
 		color: inherit;
@@ -527,6 +528,7 @@
 		background: none;
 		color: inherit;
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		cursor: pointer;
 	}
 	.tl-fold:hover {

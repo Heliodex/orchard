@@ -175,7 +175,8 @@
 		border-radius: var(--radius-xs);
 		background: var(--fill-soft);
 		color: var(--text-muted);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-micro);
 		line-height: 1.6;
 		font-weight: 600;
@@ -191,10 +192,12 @@
 
 	.log-tip-time {
 		color: var(--text-muted);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 
@@ -203,7 +206,8 @@
 		padding-top: 0.5rem;
 		border-top: 1px solid var(--rule);
 		color: var(--text-faint);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-micro);
 		line-height: var(--lh-micro);
 		word-break: break-all;

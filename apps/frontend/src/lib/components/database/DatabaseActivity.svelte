@@ -127,6 +127,7 @@
 		font-size: var(--text-callout);
 		font-weight: var(--weight-semibold);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		color: var(--text-default);
 		white-space: nowrap;
 	}

@@ -498,6 +498,7 @@
 		background: none;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		text-align: left;
 		cursor: pointer;
 		transition: background-color var(--dur-fast) ease;
@@ -667,6 +668,7 @@
 		background: none;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		cursor: pointer;
 	}
 	.me:hover,
@@ -685,7 +687,8 @@
 		overflow-x: clip;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-callout);
 		text-box: trim-both cap alphabetic;
 	}

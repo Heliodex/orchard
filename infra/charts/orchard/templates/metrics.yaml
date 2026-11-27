@@ -363,7 +363,7 @@ data:
             target_label: node
         metric_relabel_configs:
           - source_labels: [__name__]
-            regex: 'container_(cpu_usage_seconds_total|cpu_cfs_throttled_periods_total|cpu_cfs_periods_total|memory_working_set_bytes|memory_rss|memory_usage_bytes|network_receive_bytes_total|network_transmit_bytes_total|network_receive_packets_dropped_total|network_transmit_packets_dropped_total|fs_usage_bytes|fs_limit_bytes)'
+            regex: 'container_(cpu_usage_seconds_total|cpu_cfs_throttled_periods_total|cpu_cfs_periods_total|memory_working_set_bytes|network_receive_bytes_total|network_transmit_bytes_total|fs_usage_bytes|fs_limit_bytes)'
             action: keep
           - source_labels: [__name__, container]
             regex: 'container_(cpu|memory|fs)_.*;POD'
@@ -397,6 +397,10 @@ data:
           - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
             regex: kube-state-metrics;http-metrics
             action: keep
+        metric_relabel_configs:
+          - source_labels: [__name__]
+            regex: 'kube_cronjob_(info|spec_suspend|status_last_schedule_time|status_last_successful_time)|kube_daemonset_status_(current_number_scheduled|desired_number_scheduled|number_available|number_misscheduled|number_ready|number_unavailable|updated_number_scheduled)|kube_deployment_(spec_paused|spec_replicas|spec_strategy_rollingupdate_max_surge|spec_strategy_rollingupdate_max_unavailable|status_condition|status_replicas|status_replicas_available|status_replicas_ready|status_replicas_unavailable|status_replicas_updated)|kube_endpoint_(address|info)|kube_ingress_(path|tls)|kube_job_(complete|failed|info|owner|status_failed|status_succeeded)|kube_limitrange|kube_persistentvolumeclaim_(access_mode|resource_requests_storage_bytes|status_phase)|kube_pod_(container_info|container_resource_limits|container_resource_requests|container_status_ready|container_status_running|container_status_terminated|container_status_terminated_reason|container_status_waiting|created|deletion_timestamp|owner|spec_volumes_persistentvolumeclaims_info|spec_volumes_persistentvolumeclaims_readonly|start_time|status_phase|status_qos_class|status_scheduled|tolerations)|kube_pod_init_container_(info|resource_limits|resource_requests|status_ready|status_restarts_total|status_running|status_waiting)|kube_replicaset_.*|kube_resourcequota|kube_service_spec_type'
+            action: drop
 
       - job_name: node-exporter
         basic_auth:
@@ -411,6 +415,10 @@ data:
             action: keep
           - source_labels: [__meta_kubernetes_pod_node_name]
             target_label: node
+        metric_relabel_configs:
+          - source_labels: [__name__, device]
+            regex: 'node_network_.*;lxc.*'
+            action: drop
 
       # CloudNativePG instance exporter: the Postgres series behind a database's
       # Observe charts (connections, transactions, cache hits, replication lag,

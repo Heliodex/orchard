@@ -702,6 +702,7 @@
 		min-height: 0;
 		font-size: var(--chart-label-size);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		user-select: none;
 	}
 	svg {

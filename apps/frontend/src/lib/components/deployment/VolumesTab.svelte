@@ -207,7 +207,9 @@
 	}
 	.vt-note code {
 		margin-right: var(--space-1);
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--text-default);
 	}
 	.vt-note--bad {

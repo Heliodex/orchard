@@ -202,6 +202,7 @@
 		font-weight: var(--weight-regular);
 		letter-spacing: 0.04em;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-box: trim-both cap alphabetic;
 	}
 	:global(.ui-menu-item--danger) .shortcut {

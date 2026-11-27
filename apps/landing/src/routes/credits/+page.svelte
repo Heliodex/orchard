@@ -21,9 +21,15 @@
 
 	const TYPEFACES = [
 		{
+			name: 'Allo',
+			by: 'Josh Puckett, from Inter by Rasmus Andersson',
+			role: 'The default typeface',
+			url: 'https://allo.joshpuckett.me'
+		},
+		{
 			name: 'Plus Jakarta Sans',
 			by: 'Tokotype',
-			role: 'The default typeface',
+			role: 'The logotype, and a typeface you can choose',
 			url: 'https://github.com/tokotype/PlusJakartaSans'
 		},
 		{
@@ -572,7 +578,7 @@
 		font-size: clamp(4.5rem, 13vw, 10.5rem);
 		line-height: 0.9;
 		font-weight: 800;
-		letter-spacing: -0.035em;
+		letter-spacing: -0.019em;
 	}
 
 	.title-in {

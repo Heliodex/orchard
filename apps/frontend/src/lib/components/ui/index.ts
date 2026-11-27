@@ -128,4 +128,5 @@ export { default as CopyButton } from './CopyButton.svelte';
 export { default as CodeBlock } from './CodeBlock.svelte';
 export { default as CodeEditor } from './CodeEditor.svelte';
 export { default as Kbd } from './Kbd.svelte';
+export { default as WaveText } from './WaveText.svelte';
 export { default as SwatchPicker } from './SwatchPicker.svelte';

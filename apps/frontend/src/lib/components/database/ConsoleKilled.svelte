@@ -148,6 +148,7 @@
 		font-size: var(--text-callout);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		white-space: nowrap;
 	}
 	.fold {

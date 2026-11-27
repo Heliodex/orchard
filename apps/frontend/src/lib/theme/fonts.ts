@@ -1,4 +1,11 @@
-export type FontId = 'default' | 'system' | 'serif' | 'mono' | 'hyperlegible' | 'dyslexic';
+export type FontId =
+	| 'default'
+	| 'jakarta'
+	| 'system'
+	| 'serif'
+	| 'mono'
+	| 'hyperlegible'
+	| 'dyslexic';
 
 export type FontOption = {
 	id: FontId;
@@ -14,8 +21,15 @@ const SYSTEM =
 export const FONT_OPTIONS: FontOption[] = [
 	{
 		id: 'default',
-		name: 'Jakarta',
+		name: 'Allo',
 		hint: 'Orchard default',
+		stack: `'Allo', ${SYSTEM}`,
+		preview: "'Allo', sans-serif"
+	},
+	{
+		id: 'jakarta',
+		name: 'Jakarta',
+		hint: 'Plus Jakarta Sans',
 		stack: `'Plus Jakarta Sans', ${SYSTEM}`,
 		preview: "'Plus Jakarta Sans', sans-serif"
 	},

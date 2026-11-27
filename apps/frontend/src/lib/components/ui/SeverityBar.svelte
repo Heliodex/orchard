@@ -95,6 +95,7 @@
 		font-size: var(--text-title-3);
 		font-weight: var(--weight-medium);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		line-height: 1;
 		text-box: trim-both cap alphabetic;
 	}

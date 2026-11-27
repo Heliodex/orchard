@@ -20,6 +20,8 @@
 		font-weight: 600;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		color: var(--text-faint);
 	}
 </style>

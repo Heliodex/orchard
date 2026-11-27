@@ -235,6 +235,7 @@
 		color: var(--text-muted);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-box: trim-both cap alphabetic;
 	}
 	.phase-track {
@@ -324,6 +325,7 @@
 		color: var(--text-faint);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.list {
 		display: flex;
@@ -366,5 +368,6 @@
 		color: var(--text-faint);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 </style>

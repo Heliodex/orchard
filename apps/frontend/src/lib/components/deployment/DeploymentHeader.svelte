@@ -367,6 +367,7 @@
 		background: none;
 		color: var(--text-muted);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-weight: var(--weight-regular);
 		cursor: pointer;
 		transition: background-color var(--fade-in) var(--curve-out);
@@ -383,7 +384,8 @@
 		color: var(--text-default);
 	}
 	.dh-mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 		text-box: trim-both cap alphabetic;
 	}

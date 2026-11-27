@@ -61,6 +61,7 @@
 		letter-spacing: -0.014em;
 		color: var(--text-default);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.metric--sm .value {
 		font-size: var(--text-title-3);
@@ -80,6 +81,7 @@
 		line-height: var(--lh-caption);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.detail--success {
 		color: var(--status-success);

@@ -107,6 +107,7 @@
 		line-height: var(--lh-callout);
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-box: trim-both cap alphabetic;
 	}
 	.track {

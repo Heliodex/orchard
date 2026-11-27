@@ -64,7 +64,7 @@
 			<Field label="Image" for="step-{index}-image">
 				<Input
 					id="step-{index}-image"
-					class="font-mono text-sm"
+					class="type-ident text-sm"
 					placeholder="ghcr.io/acme/tool:latest"
 					bind:value={step.image}
 				/>

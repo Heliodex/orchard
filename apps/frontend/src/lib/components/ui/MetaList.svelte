@@ -66,7 +66,7 @@
 		margin-block: -0.3em;
 	}
 	.label--mono {
-		font-family: var(--font-mono);
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 </style>

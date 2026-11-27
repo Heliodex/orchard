@@ -530,7 +530,9 @@
 	}
 	.version,
 	.mono {
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 	}

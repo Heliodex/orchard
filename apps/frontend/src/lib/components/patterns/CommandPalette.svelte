@@ -1079,6 +1079,7 @@
 		background: none;
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: 1em;
 		outline: none;
 		appearance: none;
@@ -1281,6 +1282,7 @@
 		min-width: 0;
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.option--unit .ask {
 		flex-shrink: 0;
@@ -1289,6 +1291,7 @@
 		color: var(--text-default);
 		font-size: var(--text-title-3);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		letter-spacing: var(--track-title);
 	}
 	.copied {
@@ -1322,6 +1325,7 @@
 	.count {
 		min-width: 0;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.hints {
 		display: flex;

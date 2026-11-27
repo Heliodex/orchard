@@ -554,6 +554,7 @@
 		color: var(--text-faint);
 		font-size: var(--text-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.caption-meta {
 		font-size: var(--text-caption);
@@ -574,6 +575,7 @@
 		max-width: 75%;
 		color: var(--text-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.tile--error .state {
 		color: var(--status-error);

@@ -364,7 +364,9 @@
 		list-style: none;
 	}
 	.conflicts code {
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-weight: var(--weight-semibold);
 	}
 	.empty-actions {

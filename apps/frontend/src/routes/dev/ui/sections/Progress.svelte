@@ -158,7 +158,7 @@
 	<div class="grid grid-cols-2 gap-6">
 		<SectionCard title="Build #482" description="feat: sponsor tiers on the landing page">
 			{#snippet actions()}
-				<span class="text-callout text-muted tabular-nums">{total.toFixed(1)}s</span>
+				<span class="text-callout text-muted tabular-nums rond-data">{total.toFixed(1)}s</span>
 				<Button size="sm" variant="ghost" icon={RotateCcw} label="Run again" onclick={restart} />
 			{/snippet}
 			<StepRail steps={live} />
@@ -234,7 +234,7 @@
 			{#each [12, 14, 16, 20, 24, 32] as s (s)}
 				<span class="flex flex-col items-center gap-2 text-muted">
 					<Spinner size={s} />
-					<span class="text-caption text-faint tabular-nums">{s}</span>
+					<span class="text-caption text-faint tabular-nums rond-data">{s}</span>
 				</span>
 			{/each}
 			<span class="flex items-center gap-2 text-callout text-muted"

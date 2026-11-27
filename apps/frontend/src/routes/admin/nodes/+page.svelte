@@ -824,6 +824,7 @@
 		color: var(--text-default);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
@@ -840,6 +841,7 @@
 		color: var(--text-muted);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.group-head {
 		display: flex;
@@ -862,7 +864,8 @@
 		display: block;
 		min-width: 0;
 		overflow-x: clip;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 		text-overflow: ellipsis;
 		white-space: nowrap;

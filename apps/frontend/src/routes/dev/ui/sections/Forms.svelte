@@ -206,7 +206,7 @@
 					<div class="flex items-center gap-4">
 						<Slider label="Replicas" bind:value={replicasSlider} min={1} max={8} ticks />
 						<span
-							class="min-w-16 shrink-0 text-right text-body whitespace-nowrap text-muted tabular-nums"
+							class="min-w-16 shrink-0 text-right text-body whitespace-nowrap text-muted tabular-nums rond-data"
 							>{replicasSlider} of 8</span
 						>
 					</div>
@@ -215,7 +215,7 @@
 					<div class="flex items-center gap-4">
 						<Slider label="CPU" bind:value={cpu} min={0.25} max={4} step={0.25} />
 						<span
-							class="min-w-16 shrink-0 text-right text-body whitespace-nowrap text-muted tabular-nums"
+							class="min-w-16 shrink-0 text-right text-body whitespace-nowrap text-muted tabular-nums rond-data"
 							>{cpu.toFixed(2)} vCPU</span
 						>
 					</div>
@@ -224,7 +224,7 @@
 					<div class="flex items-center gap-4">
 						<Slider label="Memory" bind:value={memory} min={256} max={4096} step={256} disabled />
 						<span
-							class="min-w-16 shrink-0 text-right text-body whitespace-nowrap text-faint tabular-nums"
+							class="min-w-16 shrink-0 text-right text-body whitespace-nowrap text-faint tabular-nums rond-data"
 							>{memory} MB</span
 						>
 					</div>

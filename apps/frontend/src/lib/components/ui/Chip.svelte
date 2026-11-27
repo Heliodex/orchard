@@ -58,7 +58,9 @@
 		text-overflow: ellipsis;
 	}
 	.ui-chip-text--mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 </style>

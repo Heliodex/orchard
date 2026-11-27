@@ -115,7 +115,8 @@
 		font-variant-ligatures: none;
 		max-width: none;
 		margin-top: 0.65rem;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: 0.75rem;
 		color: var(--setup-ink-soft);
 		overflow: hidden;

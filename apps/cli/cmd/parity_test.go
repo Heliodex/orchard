@@ -143,6 +143,11 @@ var routeCoverage = map[string]string{
 	"DELETE /deployments/:id/bindings/:bindingId": "deploy bindings remove",
 	"POST /databases/:id/rotate-password":         "db rotate-password",
 	"PATCH /deployments/:id/pull-policy":          "deploy pull-policy set",
+	"GET /deployments/:id/image-update":           "deploy image-update status",
+	"POST /deployments/:id/image-update/check":    "deploy image-update check",
+	"POST /deployments/:id/image-update":          "deploy image-update apply",
+	"PATCH /deployments/:id/image-update":         "deploy image-update auto",
+	"PATCH /deployments/:id/devices":              "deploy devices set",
 
 	// databases: post-mortem capture
 	"GET /databases/:id/killed-containers":               "db killed list",

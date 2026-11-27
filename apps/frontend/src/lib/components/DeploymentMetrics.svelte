@@ -1393,6 +1393,8 @@
 		font-weight: 600;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 	}
 	.metrics-badge--live {
 		background-color: var(--status-success-bg);
@@ -1476,6 +1478,7 @@
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		color: var(--text-faint);
 		display: inline-flex;
 		align-items: center;
@@ -1547,6 +1550,7 @@
 	}
 	.metrics-card-now {
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		font-weight: 600;
 		font-size: var(--text-title-3);
 		line-height: var(--lh-title-3);
@@ -1616,12 +1620,15 @@
 		font-size: var(--text-micro);
 		line-height: var(--lh-micro);
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.06em;
 		color: var(--text-muted, rgba(140, 140, 150, 0.95));
 	}
 	.metrics-card-stats dd {
 		margin: 0;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		font-size: var(--text-callout);
 		line-height: var(--lh-callout);
 		font-weight: 600;
@@ -1736,6 +1743,7 @@
 	}
 	.metrics-custompanel input[type='datetime-local'] {
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		padding: 4px 8px;
 		border-radius: var(--radius-xs);
 		border: 1px solid rgba(120, 120, 128, 0.25);
@@ -1759,6 +1767,7 @@
 
 	.btn-mini {
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		font-weight: 600;
@@ -1816,6 +1825,7 @@
 	.mtx-tip-time {
 		color: var(--text-muted, rgba(140, 140, 150, 0.95));
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.mtx-tip-val {
 		display: inline-flex;
@@ -1823,6 +1833,7 @@
 		gap: 8px;
 		font-weight: 600;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 
 	.mtx-board {
@@ -1870,6 +1881,7 @@
 		line-height: var(--lh-body);
 		font-weight: 600;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		letter-spacing: -0.01em;
 		color: var(--text-primary, inherit);
 	}
@@ -1886,6 +1898,7 @@
 		line-height: var(--lh-micro);
 		color: var(--text-muted, rgba(140, 140, 150, 0.9));
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		padding-top: 4px;
 	}
 	.mtx-cell-foot b {
@@ -1928,6 +1941,7 @@
 		line-height: var(--lh-title-3);
 		font-weight: 600;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		letter-spacing: -0.015em;
 		color: var(--text-primary, inherit);
 	}
@@ -1939,6 +1953,7 @@
 		line-height: var(--lh-micro);
 		color: var(--text-muted, rgba(140, 140, 150, 0.9));
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.mtx-band-chart {
 		position: relative;
@@ -1987,6 +2002,7 @@
 		line-height: var(--lh-caption);
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.mtx-brush-reset {
 		border: none;
@@ -2076,7 +2092,8 @@
 		flex-shrink: 0;
 	}
 	.mtx-legend-name {
-		font-family: var(--font-mono, ui-monospace, monospace);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		color: var(--text-muted);
@@ -2086,7 +2103,8 @@
 	}
 
 	.mtx-tip-key {
-		font-family: var(--font-mono, ui-monospace, monospace);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--text-muted);
 		margin-right: var(--space-2);
 	}

@@ -205,7 +205,7 @@
 		font-weight: 700;
 		color: var(--center-channel-color);
 		margin: 0;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		line-height: 1.2;
 	}
 
@@ -298,7 +298,8 @@
 	}
 
 	.nw-input-mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 
 	.nw-org-display {
@@ -333,7 +334,9 @@
 	.nw-preview-value {
 		font-size: var(--text-footnote);
 		line-height: var(--lh-footnote);
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		color: var(--sidebar-text-active-border);
 	}
 

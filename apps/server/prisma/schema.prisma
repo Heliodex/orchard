@@ -747,6 +747,7 @@ model Deployment {
   image                String?            @db.VarChar(500)
   replicas             Int                @default(1)
   stopped              Boolean            @default(false)
+  createdByGraft       String?            @map("created_by_graft") @db.VarChar(255)
   pendingPush          Json?              @map("pending_push")
   // Per-container resource request (== limit; Guaranteed QoS).
   // Null means fall back to org defaultPodCpuMilli/defaultPodMemoryBytes, then 100m/128Mi.
@@ -757,6 +758,7 @@ model Deployment {
   // ({ nodeSelector?, tolerations?, affinity? } deep-merged over the resolved placement).
   nodePoolId           String?            @map("node_pool_id") @db.Uuid
   placementOverride    Json?              @map("placement_override") @db.JsonB
+  devices              Json               @default("{}") @db.JsonB
   buildStatus          String             @default("none") @map("build_status") @db.VarChar(50)
   buildStep            String?            @map("build_step") @db.VarChar(50)
   buildType            BuildType          @default(dockerfile) @map("build_type")
@@ -774,6 +776,14 @@ model Deployment {
   // GitHub builds get a unique v<timestamp> tag per build, so they derive to
   // IfNotPresent and re-pulling would be pure waste.
   imagePullPolicy      ImagePullPolicy?   @map("image_pull_policy")
+  imageAutoUpdate      Boolean            @default(false) @map("image_auto_update")
+  imageCheckedRef      String?            @map("image_checked_ref") @db.VarChar(500)
+  imageRunningDigest   String?            @map("image_running_digest") @db.VarChar(100)
+  imageLatestDigest    String?            @map("image_latest_digest") @db.VarChar(100)
+  imageAttemptedDigest String?            @map("image_attempted_digest") @db.VarChar(100)
+  imageCheckedAt       DateTime?          @map("image_checked_at") @db.Timestamp(6)
+  imageCheckError      String?            @map("image_check_error") @db.VarChar(100)
+  imageUpdatedAt       DateTime?          @map("image_updated_at") @db.Timestamp(6)
   envObservedHash      String?            @map("env_observed_hash") @db.VarChar(64)
   envConflicts         Json?              @map("env_conflicts") @db.JsonB
   githubRepo           String?            @map("github_repo") @db.VarChar(500)
@@ -923,6 +933,7 @@ model Deployment {
   @@index([templateInstanceId], map: "idx_deployments_template_instance")
   @@index([composeStackId], map: "idx_deployments_compose_stack")
   @@index([tailscaleExposedBy], map: "idx_deployments_tailscale_exposed_by")
+  @@index([createdByGraft], map: "idx_deployments_created_by_graft")
   @@map("deployments")
 }
 

@@ -328,7 +328,7 @@
 		{#snippet wordmark()}
 			<img src="/logo/logofulldm.svg" alt="Orchard" />
 		{/snippet}
-		{#snippet headline()}sign in to <em>Orchard</em>.{/snippet}
+		{#snippet headline()}sign in to <em class="logotype">Orchard</em>.{/snippet}
 		<SignInFlow
 			title="Sign in"
 			subtitle={$page.url.host}

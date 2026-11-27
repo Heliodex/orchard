@@ -69,6 +69,7 @@
 		line-height: var(--lh-caption);
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.settings-rail {
 		min-width: 0;

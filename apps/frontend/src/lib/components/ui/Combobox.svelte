@@ -233,6 +233,7 @@
 		box-shadow: inset 0 0 0 1px var(--border-default);
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		transition:
 			box-shadow var(--fade-in) var(--curve-out),

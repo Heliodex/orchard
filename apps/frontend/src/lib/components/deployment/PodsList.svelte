@@ -415,7 +415,8 @@
 		height: 1rem;
 	}
 	.pid {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 		font-weight: var(--weight-medium);
 		text-box: trim-both cap alphabetic;
@@ -424,7 +425,8 @@
 		padding: 0.125rem 0.375rem;
 		border-radius: calc(0.3125rem * var(--corner-scale));
 		corner-shape: var(--corner);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-micro);
 		font-weight: var(--weight-medium);
 		white-space: nowrap;
@@ -453,12 +455,14 @@
 	.face-end {
 		margin-left: auto;
 		overflow: hidden;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		color: var(--island-muted);
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.face-end--tone {
 		font-family: inherit;
@@ -502,10 +506,12 @@
 	}
 	.kv dd {
 		margin: 0;
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-footnote);
 		color: var(--island-fg);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.kv .kv-tone {
 		color: var(--island-tone);

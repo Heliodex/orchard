@@ -179,6 +179,7 @@
 		line-height: var(--lh-body);
 		font-weight: var(--weight-medium);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-align: right;
 	}
 	.hit {

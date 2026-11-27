@@ -112,6 +112,8 @@
 		line-height: var(--lh-micro);
 		font-weight: 600;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.06em;
 		color: var(--text-faint);
 		margin-bottom: 0.5rem;

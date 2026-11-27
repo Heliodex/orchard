@@ -86,6 +86,7 @@
 		box-shadow: var(--shadow-raised);
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		line-height: var(--lh-body);
 		text-align: left;
@@ -142,8 +143,8 @@
 		white-space: nowrap;
 	}
 	.value--mono {
-		font-family: var(--font-mono);
-		font-size: 0.9em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-weight: var(--weight-regular);
 	}
 	.value--empty {

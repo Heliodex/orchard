@@ -114,6 +114,7 @@
 		color: var(--text-faint);
 		font-size: var(--text-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-align: right;
 	}
 	.traits {

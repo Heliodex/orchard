@@ -385,7 +385,7 @@
 						id="cs-compose-path"
 						bind:value={composePath}
 						placeholder="docker-compose.yml"
-						class="font-mono"
+						class="type-ident"
 					/>
 					<p class="cs-hint">
 						Relative to the repo root. Default: <code>docker-compose.yml</code>.
@@ -446,7 +446,7 @@
 		font-weight: 700;
 		color: var(--center-channel-color);
 		margin: 0;
-		letter-spacing: -0.025em;
+		letter-spacing: -0.014em;
 		background: linear-gradient(
 			135deg,
 			var(--sidebar-text-active-border),
@@ -503,6 +503,8 @@
 		font-weight: 600;
 		color: var(--surface-muted);
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.05em;
 	}
 

@@ -1094,7 +1094,8 @@
 		color: var(--text-muted);
 	}
 	.mono {
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 	.names {
 		margin: 0;
@@ -1102,13 +1103,13 @@
 		border-radius: calc(var(--radius-control) * var(--corner-scale));
 		corner-shape: var(--corner);
 		background: var(--bg-sunken);
-		font-family: var(--font-mono);
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: 1.5rem;
 		list-style: none;
 	}
 	.names .more {
-		font-family: var(--font-sans);
 		color: var(--text-muted);
 	}
 </style>

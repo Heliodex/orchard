@@ -129,5 +129,6 @@
 		color: var(--text-faint);
 		font-size: var(--text-footnote);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 </style>

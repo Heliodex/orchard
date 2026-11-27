@@ -247,6 +247,7 @@
 		font-size: var(--text-callout);
 		font-weight: var(--weight-medium);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.headline--warning {
 		color: var(--status-warning);

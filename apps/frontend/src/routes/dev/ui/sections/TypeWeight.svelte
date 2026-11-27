@@ -69,7 +69,7 @@
 		{#each ROLES as r (r.role)}
 			<div class="scale-row">
 				<span class="font-mono text-caption text-muted">{r.role}</span>
-				<span class="text-caption text-faint tabular-nums">{metrics[r.role] ?? ''}</span>
+				<span class="text-caption text-faint tabular-nums rond-data">{metrics[r.role] ?? ''}</span>
 				<span class="{r.cls} min-w-0 truncate text-fg">{r.sample}</span>
 			</div>
 		{/each}
@@ -99,7 +99,9 @@
 	>
 		<div class="grid grid-cols-2 gap-4">
 			<Verdict kind="do" note="tabular-nums">
-				<span class="counter tabular-nums">{rpmText} <span class="text-faint">req/min</span></span>
+				<span class="counter tabular-nums rond-data"
+					>{rpmText} <span class="text-faint">req/min</span></span
+				>
 			</Verdict>
 			<Verdict kind="dont" note="Proportional digits jitter.">
 				<span class="counter counter--proportional"
@@ -229,7 +231,7 @@
 		color: var(--text-default);
 		font-size: 2.5rem;
 		line-height: 1;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 	}
 	.counter {
 		color: var(--text-default);

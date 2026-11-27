@@ -126,13 +126,15 @@
 		background: none;
 		color: var(--text-muted);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-callout);
 		font-weight: var(--weight-medium);
 		white-space: nowrap;
 		cursor: pointer;
 		transition:
 			color var(--dur-fast) ease,
-			transform var(--spring-press-duration) var(--spring-press);
+			transform var(--spring-press-duration) var(--spring-press),
+			font-variation-settings var(--spring-smooth-duration) var(--spring-smooth);
 	}
 	.opt:active:not(:disabled) {
 		transform: scale(0.96);

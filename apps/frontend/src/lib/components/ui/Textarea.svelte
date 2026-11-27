@@ -83,6 +83,7 @@
 		box-shadow: inset 0 0 0 0.5px color-mix(in oklab, var(--neutral-10) 6%, transparent);
 		color: var(--text-default);
 		font: inherit;
+		font-variation-settings: 'ROND' var(--rond);
 		font-size: var(--text-body);
 		line-height: var(--lh-body);
 		resize: vertical;
@@ -144,6 +145,7 @@
 		line-height: 1;
 		color: var(--text-faint);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		pointer-events: none;
 		text-box: trim-both cap alphabetic;
 	}

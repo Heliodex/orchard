@@ -520,7 +520,7 @@
 		white-space: nowrap;
 		font-size: calc(var(--text-display) * 1.5);
 		font-weight: var(--weight-semibold);
-		letter-spacing: -0.03em;
+		letter-spacing: -0.017em;
 		line-height: 1;
 		text-shadow: var(--on-media-shadow);
 		text-box: trim-both cap alphabetic;
@@ -561,6 +561,7 @@
 		color: var(--on-media-muted);
 		font-size: var(--text-body);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		padding-block: 0.3em;
 		margin-block: -0.3em;
 	}
@@ -642,6 +643,7 @@
 		font-size: var(--text-caption);
 		font-weight: var(--weight-medium);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		text-box: trim-both cap alphabetic;
 		padding-left: 0.125rem;
 	}

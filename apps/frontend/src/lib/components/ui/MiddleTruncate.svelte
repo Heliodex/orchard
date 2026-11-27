@@ -17,8 +17,8 @@
 		white-space: nowrap;
 	}
 	.mt--mono {
-		font-family: var(--font-mono-terminal, var(--font-mono));
-		font-size: 0.95em;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 	}
 	.head {
 		overflow: hidden;

@@ -292,7 +292,9 @@
 	}
 	.env-row-ns {
 		margin-left: auto;
-		font-family: var(--font-mono);
+		font-family: inherit;
+		font-feature-settings: var(--font-features-ident);
+		--rond: var(--rond-ident);
 		font-size: var(--text-caption);
 		line-height: var(--lh-caption);
 		color: var(--text-muted);

@@ -80,7 +80,7 @@
 		font-size: var(--text-title-1);
 		line-height: var(--lh-title-1);
 		font-weight: var(--weight-semibold);
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 	}
 	.description {
 		max-width: 40rem;

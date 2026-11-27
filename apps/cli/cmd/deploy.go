@@ -52,6 +52,8 @@ func deployCmd() *cobra.Command {
 		deployVolumesCmd(),
 		deployStrategyCmd(),
 		deployPullPolicyCmd(),
+		deployImageUpdateCmd(),
+		deployDevicesCmd(),
 		deployHealthCheckCmd(),
 		deployBuildRootCmd(),
 		deployBuildConfigCmd(),

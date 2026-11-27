@@ -497,7 +497,7 @@
 		color: var(--setup-ink);
 		font-size: 96px;
 		font-weight: 600;
-		letter-spacing: -0.05em;
+		letter-spacing: -0.028em;
 		line-height: 1;
 	}
 

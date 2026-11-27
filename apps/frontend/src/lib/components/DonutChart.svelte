@@ -232,6 +232,7 @@
 	}
 	.donut-legend-amount {
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		font-weight: 600;
 	}
 	.donut-legend-pct {
@@ -239,6 +240,7 @@
 		line-height: var(--lh-micro);
 		color: var(--surface-muted);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		min-width: 2.5rem;
 		text-align: right;
 	}

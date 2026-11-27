@@ -136,6 +136,7 @@
 		font-size: var(--text-callout);
 		line-height: var(--lh-callout);
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		color: var(--text-faint);
 		white-space: nowrap;
 		transition: opacity var(--fade-in) var(--curve-out);

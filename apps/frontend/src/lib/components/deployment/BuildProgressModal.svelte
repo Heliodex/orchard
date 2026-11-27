@@ -261,7 +261,7 @@
 				<span class="truncate text-sm font-medium">{cardName}</span>
 				<div class="ml-auto flex items-center gap-1.5 shrink-0">
 					<div
-						class="flex items-center gap-1 text-xs font-mono"
+						class="flex items-center gap-1 text-xs type-ident"
 						style="color: var(--surface-muted);"
 					>
 						<Clock size={12} class="h-3 w-3" />

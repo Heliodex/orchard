@@ -190,11 +190,12 @@
 		text-align: center;
 		font-weight: 700;
 		color: var(--center-channel-color);
-		letter-spacing: -0.02em;
+		letter-spacing: -0.011em;
 		pointer-events: none;
 	}
 	.speedo-pct {
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 		color: var(--fill-color);
 	}
 	.speedo-pct.over {
@@ -216,6 +217,8 @@
 		line-height: var(--lh-micro);
 		font-weight: 600;
 		text-transform: uppercase;
+		font-feature-settings: var(--font-features-caps);
+		--rond: var(--rond-caps);
 		letter-spacing: 0.05em;
 		color: var(--surface-muted);
 		margin: 0;
@@ -227,6 +230,7 @@
 	}
 	.speedo-strong {
 		font-variant-numeric: tabular-nums;
+		--rond: var(--rond-data);
 	}
 	.speedo-muted {
 		color: var(--surface-muted);
